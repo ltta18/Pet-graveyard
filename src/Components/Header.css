@@ -1,0 +1,19 @@
+#header {
+  height: 70px;
+  padding: 20px;
+}
+
+#logo {
+  float: left;
+  margin-left: 1rem !important;
+}
+
+.button { 
+  background: #EDE6D9 !important;
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.05);
+  float: right;
+  margin-right: 1rem !important;
+}
