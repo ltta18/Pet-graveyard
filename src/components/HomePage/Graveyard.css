@@ -1,0 +1,15 @@
+#graveyard {
+  width: 50%;
+  float: right;
+  background: #fff;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.grave {
+  width: 130px;
+  height: 130px;
+  background: #6E6F7F;
+  color: #fff;
+  justify-content: center;
+}

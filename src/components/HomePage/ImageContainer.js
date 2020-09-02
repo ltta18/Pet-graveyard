@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import './ImageContainer.css';
-import { Container } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 
 const Image = () => {
   return (
-    <Container className="image">
+    <Grid item className="image" spacing={1}>
       <img src="" />
-    </Container>
+    </Grid>
   );
 }
 
@@ -18,7 +18,7 @@ function ImageContainer () {
   }
   
   return (
-    <Container id="image-container">{container}</Container>
+    <Grid direction='row' alignItems='center' spacing={5} id="image-container">{container}</Grid>
   )
 }
 
