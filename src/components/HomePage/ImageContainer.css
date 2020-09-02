@@ -1,8 +1,7 @@
 #image-container {
-  display: flex;
   width: 45%;
-  overflow-x: scroll;
-  align-items: center;
+  display: flex;
+  overflow-x: auto;
   margin-left: 0 !important;
   background: #fff;
   padding: 10px !important;
