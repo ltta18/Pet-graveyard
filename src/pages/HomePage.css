@@ -1,0 +1,18 @@
+#intro {
+  display: flex;
+  background: #D2D8E8 !important; 
+  padding: 2rem !important;
+}
+
+.MuiContainer-root {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+#body {
+  background: #EDE6D9 !important;
+  height: 700px;
+  margin-top: 50px;
+  padding: 2rem !important;
+  display: flex;
+}
