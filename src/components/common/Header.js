@@ -1,13 +1,17 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
 import './Header.css';
 
 function Header() {
   return (
     <Grid id="header">
       <img src="" alt="logo" id="logo"/>
-      <Button className="button">Donate</Button>
+      <Container>
+        <Button className="button">Đăng kí mộ</Button>
+        <Button className="button">Donate</Button>
+      </Container>
     </Grid>
   );
 }
