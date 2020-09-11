@@ -5,7 +5,7 @@ import { Grid } from '@material-ui/core';
 function ImageContainer () {
   const Image = () => {
     return (
-      <Grid item className="image" spacing={1}>
+      <Grid item className="image">
         <img src="" />
       </Grid>
     );

@@ -16,7 +16,7 @@ function Headstone(props) {
           title="Headstone Image"
         />
         <CardContent>
-        <Typography component="p" variant="name">{name}</Typography>
+        <Typography component="p">{name}</Typography>
         </CardContent>
       </CardActionArea>
     </Card>
