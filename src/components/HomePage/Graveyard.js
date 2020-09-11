@@ -1,6 +1,6 @@
 import React from 'react';
 import './Graveyard.css';
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 
 function Graveyard(props) {
   const { handleClickGrave } = props
@@ -16,7 +16,7 @@ function Graveyard(props) {
   const graveyard = []
 
   for (let i=0; i<9; i++) {
-    graveyard.push(<Grave />)
+    graveyard.push(<Grave key={i} />)
   }
 
   return (
