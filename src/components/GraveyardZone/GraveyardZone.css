@@ -1,0 +1,61 @@
+#graveyard-zone {
+  position: fixed;
+  width: 90% !important;
+  height: 90%;
+  background-color: white;
+  z-index: 2;
+  top: 5%;
+  left: 5%;
+  border: 2px solid #EDE6D9 !important;
+  overflow: hidden;
+}
+
+.graveyard-body {
+  position: fixed;
+  width: 85% !important;
+  height: 85%;
+  background-color: #EDE6D9;
+  z-index: 2;
+  top: 7.5%;
+  left: 7.5%;
+  overflow: auto;
+}
+
+.header {
+  display: flex !important;
+  width: 80% !important;
+  text-align: center;
+  padding-top: 10px;
+  position: fixed;
+  background-color: #EDE6D9;
+  z-index: 3;
+}
+
+.x-icon {
+  background: url('../../img/x.svg') no-repeat;
+  width: 2rem !important;
+  height: 2rem;
+  cursor: pointer;
+  z-index: 2;
+  margin-left: auto !important;
+  margin-right: 10px !important;
+  border: none;
+}
+
+.x-icon:focus {
+  border: none !important;
+}
+
+.zone-name {
+  width: calc(100% - 4rem - 40px);
+  margin-left: calc(2rem + 30px) !important;
+  font-size: 1.4rem !important;
+}
+
+.headstone-list {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow: auto;
+  margin-top: 50px;
+}

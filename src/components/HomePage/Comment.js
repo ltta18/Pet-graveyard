@@ -1,14 +1,14 @@
 import React from 'react';
+import { Container, Box, TextField, Typography } from '@material-ui/core';
 import './Comment.css';
-import { Container, Box, TextField } from '@material-ui/core';
 
 function Comment() {
   return (
     <Container id="comment-section">
-      <Container>Comment</Container>
+      <Typography>Comment</Typography>
       <Box id="comment-box">
-        <Box>A: Chào buổi sáng mọi người</Box>
-        <Box>B: Chào buổi sáng mọi người</Box>
+        <Typography>A: Chào buổi sáng mọi người</Typography>
+        <Typography>B: Chào buổi sáng mọi người</Typography>
         <TextField
           id="text-input"
           placeholder="Nhập comment tại đây"
