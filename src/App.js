@@ -1,13 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import HomePage from './pages/HomePage';
+import React from "react";
+import HomePage from "./pages/homepage";
+import Layout from "./pages/layout";
+import history from "./utils/history";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <HomePage />
-    </div>
+    <React.StrictMode>
+      <BrowserRouter history={history}>
+        <Layout />
+      </BrowserRouter>
+    </React.StrictMode>
   );
 }
 
