@@ -9,7 +9,7 @@ const BasicLayout = () => (
     <Header />
     <Switch>
       <Route exact path="/" component={Homepage} />
-      <Route exact path="/cemetery" component={Cemetery} />
+      <Route exact path="/cemetery/:id" component={Cemetery} />
     </Switch>
   </div>
 );
