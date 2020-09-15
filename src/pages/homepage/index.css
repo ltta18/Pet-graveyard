@@ -2,6 +2,7 @@
   display: flex;
   background: #D2D8E8 !important; 
   padding: 2rem !important;
+  text-align: center;
 }
 
 .MuiContainer-root {
@@ -16,6 +17,7 @@
   margin-bottom: 100px;
   padding: 2rem !important;
   display: flex;
+  text-align: center;
 }
 
 #black-filter {

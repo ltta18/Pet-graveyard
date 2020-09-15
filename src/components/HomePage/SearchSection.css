@@ -18,3 +18,7 @@
   margin: 10px 5% !important;
   height: 80%;
 }
+
+.MuiInput-underline:before {
+  border-bottom: none !important;
+}

@@ -1,15 +1,15 @@
 import React from 'react';
 import './Graveyard.css';
-import { Grid, Typography } from '@material-ui/core';
+import { Container, Grid, Typography } from '@material-ui/core';
 
 function Graveyard(props) {
   const { handleClickGrave } = props
 
   const Grave = () => {
     return (
-      <div className="grave" onClick={handleClickGrave}>
-        <Typography>Khu A</Typography>
-      </div>
+      <Container className="grave" onClick={handleClickGrave}>
+        <Typography component="div">Khu A</Typography>
+      </Container>
     )
   }
 

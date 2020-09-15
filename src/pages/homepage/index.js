@@ -1,11 +1,11 @@
 import React from "react";
-import ImageContainer from "../../components/HomePage/ImageContainer";
-import Graveyard from "../../components/HomePage/Graveyard";
-import SearchSection from "../../components/HomePage/SearchSection";
-import Comment from "../../components/HomePage/Comment";
+import ImageContainer from "../../components/homepage/ImageContainer";
+import Graveyard from "../../components/homepage/Graveyard";
+import SearchSection from "../../components/homepage/SearchSection";
+import Comment from "../../components/homepage/Comment";
+import GraveyardZone from "../../components/graveyardzone/GraveyardZone";
 import { Container } from "@material-ui/core";
 import "./index.css";
-import GraveyardZone from "../../components/GraveyardZone/GraveyardZone";
 
 function HomePage() {
   const handleClickGrave = () => {
@@ -30,9 +30,9 @@ function HomePage() {
       </Container>
       <Container id="body">
         <SearchSection />
-        <Graveyard handleClickGrave={() => handleClickGrave()} />
+        <Graveyard handleClickGrave={handleClickGrave} />
       </Container>
-      <GraveyardZone zoneName="Khu A" handleClose={() => handleClose()} />
+      <GraveyardZone zoneName="Khu A" handleClose={handleClose} />
       <Container id="black-filter" style={{ display: "none" }}></Container>
     </Container>
   );
