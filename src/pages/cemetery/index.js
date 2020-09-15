@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import Slider from "react-slick";
+
 const Cemetery = (props) => {
   const { id } = props.match.params;
 
@@ -27,6 +28,7 @@ const Cemetery = (props) => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  
   return (
     <Container className="cemetery-container" maxWidth="lg">
       <Grid container justify="center" alignItems="center">
