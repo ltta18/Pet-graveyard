@@ -28,7 +28,7 @@ const Cemetery = (props) => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-  
+
   return (
     <Container className="cemetery-container" maxWidth="lg">
       <Grid container justify="center" alignItems="center">
@@ -45,36 +45,42 @@ const Cemetery = (props) => {
                 <img
                   className="img"
                   src="https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697"
+                  alt="carousel-1"
                 />
               </div>
               <div>
                 <img
                   className="img"
                   src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1144982182.jpg"
+                  alt="carousel-2"
                 />
               </div>
               <div>
                 <img
                   className="img"
                   src="https://images.english.elpais.com/resizer/8cNVrZOU1KaW0whQODrMSxdaofY=/768x0/filters:focal(1052x792:1062x802)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/IPZM424KYBEH7IVUKNQZETWHVU.jpg"
+                  alt="carousel-3"
                 />
               </div>
               <div>
                 <img
                   className="img"
                   src="https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697"
+                  alt="carousel-4"
                 />
               </div>
               <div>
                 <img
                   className="img"
                   src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1144982182.jpg"
+                  alt="carousel-5"
                 />
               </div>
               <div>
                 <img
                   className="img"
                   src="https://images.english.elpais.com/resizer/8cNVrZOU1KaW0whQODrMSxdaofY=/768x0/filters:focal(1052x792:1062x802)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/IPZM424KYBEH7IVUKNQZETWHVU.jpg"
+                  alt="carousel-6"
                 />
               </div>
             </Slider>
