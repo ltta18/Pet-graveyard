@@ -1,21 +1,22 @@
 import React from 'react';
 import './Graveyard.css';
-import { Container, Box, TextField, Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 
-const Grave = () => {
-  return (
-    <Box className="grave">
-      <Box>Khu A</Box>
-    </Box>
-  )
-}
+function Graveyard(props) {
+  const { handleClickGrave } = props
 
-function Graveyard() {
+  const Grave = () => {
+    return (
+      <div className="grave" onClick={handleClickGrave}>
+        <Typography>Khu A</Typography>
+      </div>
+    )
+  }
+
   const graveyard = []
 
-
   for (let i=0; i<9; i++) {
-    graveyard.push(<Grave />)
+    graveyard.push(<Grave key={i} />)
   }
 
   return (

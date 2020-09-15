@@ -1,13 +1,13 @@
 import React from 'react';
 import './SearchSection.css';
-import { Container, Box, TextField, Input } from '@material-ui/core';
+import { Container, Box, TextField, Typography } from '@material-ui/core';
 
 function SearchSection() {
   return (
     <Container id="search-section">
-      <Box>Tìm kiếm</Box>
+      <Typography>Tìm kiếm</Typography>
       <Container className="input-field">
-        <Input placeholder="Nhập nội dung tìm kiếm" type="text"/>
+        <TextField placeholder="Nhập nội dung tìm kiếm" />
       </Container>
       <Box className="result"></Box>
     </Container>
