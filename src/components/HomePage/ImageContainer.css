@@ -1,20 +1,23 @@
-#image-container {
+.slick-slider  {
   width: 45%;
-  display: flex;
-  overflow-x: auto;
-  margin-left: 0 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0px !important;
   background: #fff;
   padding: 10px !important;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
   border-radius: 3px;
+  background-color: #EDE6D9;
 }
 
 .image {
   width: 70px !important;
   height: 70px;
   border-radius: 35px;
-  background: #EDE6D9;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
   flex-shrink: 0;
-  margin-right: 10px !important;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
 }
