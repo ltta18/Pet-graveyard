@@ -1,6 +1,7 @@
 import React from 'react';
 import './ImageContainer.css';
 import Slider from "react-slick";
+import CustomSlide from '../common/CustomSlide';
 
 const SLIDE_IMAGES = [
   require('../../img/cat1.jpg'),
@@ -15,16 +16,6 @@ const SLIDE_IMAGES = [
 ]
 
 function ImageContainer () {
-  const CustomSlide = ({ url, index }) => {
-    return (
-      <img
-        className="image"
-        src={url}
-        alt={`carousel-${index}`}
-      />
-    )
-  }
-
   const settings = {
     dots: true,
     infinite: true,
@@ -33,11 +24,12 @@ function ImageContainer () {
     slidesToScroll: 3,
     autoplay: true,
     adaptiveHeight: true,
+    className: 'slider'
   };
   
   return (
     <Slider {...settings}> 
-      {SLIDE_IMAGES.map((url, i) => <CustomSlide url={url} index={i} />)}
+      {SLIDE_IMAGES.map((url, i) => <CustomSlide url={url} index={i} className='image' key={i} />)}
     </Slider>
   )
 }

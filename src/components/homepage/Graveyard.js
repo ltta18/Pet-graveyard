@@ -5,23 +5,21 @@ import { Container, Grid, Typography } from '@material-ui/core';
 function Graveyard(props) {
   const { handleClickGrave } = props
 
-  const Grave = () => {
+  const Grave = ({ index }) => {
+    const zoneName = String.fromCharCode(65+index)
+
     return (
-      <Container className="grave" onClick={handleClickGrave}>
-        <Typography component="div">Khu A</Typography>
+      <Container className="grave" onClick={() => handleClickGrave(zoneName)}>
+        <Typography component="div">Khu {zoneName}</Typography>
       </Container>
     )
   }
 
-  const graveyard = []
-
-  for (let i=0; i<9; i++) {
-    graveyard.push(<Grave key={i} />)
-  }
+  const indexArr = [...Array(16).keys()];
 
   return (
     <Grid container justify="space-between" id="graveyard">
-      {graveyard}
+      {indexArr.map(index => <Grave index={index} key={index} />)}
     </Grid>
   );
 }
