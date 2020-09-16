@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ImageContainer from "../../components/homepage/ImageContainer";
 import Graveyard from "../../components/homepage/Graveyard";
 import SearchSection from "../../components/homepage/SearchSection";
@@ -8,11 +8,14 @@ import { Container } from "@material-ui/core";
 import "./index.css";
 
 function HomePage() {
-  const handleClickGrave = () => {
+  const [zoneName, setZoneName] = useState('A');
+
+  const handleClickGrave = zoneName => {
     let filter = document.getElementById("black-filter");
     let graveyard = document.getElementById("graveyard-zone");
     filter.style.display = "";
     graveyard.style.display = "";
+    setZoneName(zoneName);
   };
 
   const handleClose = () => {
@@ -32,7 +35,7 @@ function HomePage() {
         <SearchSection />
         <Graveyard handleClickGrave={handleClickGrave} />
       </Container>
-      <GraveyardZone zoneName="Khu A" handleClose={handleClose} />
+      <GraveyardZone zoneName={`Khu ${zoneName}`} handleClose={handleClose} />
       <Container id="black-filter" style={{ display: "none" }}></Container>
     </Container>
   );
