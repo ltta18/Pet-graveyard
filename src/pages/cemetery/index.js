@@ -9,23 +9,26 @@ import {
   Typography,
 } from "@material-ui/core";
 import Slider from "react-slick";
+import icon from '../../img/incense.svg';
+
 const Cemetery = (props) => {
   const { id } = props.match.params;
 
   const settings = {
-    // customPaging: function (i) {
-    //   return (
-    //     <a>
-    //       <img src={`${baseUrl}/abstract0${i + 1}.jpg`} />
-    //     </a>
-    //   );
-    // },
+    customPaging: function (i) {
+      return (
+        <a>
+          <img className="small-image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1144982182.jpg" />
+        </a>
+      );
+    },
     dots: true,
     dotsClass: "slick-dots slick-thumb",
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    // column: 2
   };
   return (
     <Container className="cemetery-container" maxWidth="lg">
@@ -36,9 +39,32 @@ const Cemetery = (props) => {
           </Typography>
         </Grid>
 
-        <Grid className="cemetery-content" container spacing={2}>
-          <Grid item xs={5}>
+        <Grid className="cemetery-content" container spacing={6}>
+          <Grid
+            item
+            sm={4}
+            xs={12}
+            className="sliderContainer"
+          >
             <Slider {...settings}>
+              <div>
+                <img
+                  className="img"
+                  src="https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697"
+                />
+              </div>
+              <div>
+                <img
+                  className="img"
+                  src="https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697"
+                />
+              </div>
+              <div>
+                <img
+                  className="img"
+                  src="https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697"
+                />
+              </div>
               <div>
                 <img
                   className="img"
@@ -77,22 +103,44 @@ const Cemetery = (props) => {
               </div>
             </Slider>
           </Grid>
-          <Grid className="cemetery-pet" item xs={7}>
+          <Grid className="cemetery-pet" item sm={8} xs={12}>
             <Grid className="cemetery-pet-info">
               <Typography align="center" variant="h5" component="h2">
                 Giới thiệu chung
               </Typography>
             </Grid>
-            <Grid container className="pet-info-comment" spacing={2}>
-              <Grid className="comment-box" item xs={8}>
+            <Grid container className="pet-info-comment" spacing={1}>
+              <Grid
+                className="comment-box"
+                item
+                sm={8}
+                xs={12}
+              >
                 <InputBase
                   className="comment-input"
                   fullWidth
                   placeholder="Hãy gõ lời bạn muốn nhắn nhủ ở đây"
                 />
               </Grid>
-              <Grid className="comment-send" item xs={4}>
-                <Button variant="contained">Thắp hương</Button>
+              <Grid
+                item
+                className="comment-send"
+                sm={4}
+                xs={12}
+                direction="column"
+                justify="flex-end"
+              >
+                <img 
+                  src={icon}
+                  className="icon"
+                  alt="incense-icon"
+                />
+                <Button
+                  className="incense-button" 
+                  variant="contained"
+                >
+                  Thắp hương
+                </Button>
               </Grid>
             </Grid>
           </Grid>

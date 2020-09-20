@@ -1,11 +1,12 @@
 .cemetery-container {
-  padding: 30px 50px 100px;
+  padding: 30px 30px 70px;
   background-color: #d2d8e8;
 }
 .cemetery-title {
   display: inline-block;
   padding: 15px 30px;
   background-color: #ede6d9;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
 }
 
 .img {
@@ -20,7 +21,7 @@
 
 .cemetery-content {
   margin-top: 24px !important;
-  padding: 0 50px;
+  padding: 0 30px;
 }
 
 .cemetery-pet-info {
@@ -28,6 +29,8 @@
   height: 244px;
   background: #ede6d9;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .pet-info-comment {
@@ -45,6 +48,7 @@
 .comment-input {
   align-self: flex-end;
   background-color: #fff;
+  padding: 5px;
 }
 
 .comment-send {
@@ -53,3 +57,43 @@
   align-items: flex-end;
   justify-content: center;
 }
+
+.icon {
+  width: 8rem;
+  height: 4rem;
+}
+
+.incense-button {
+  margin-left: 10px !important;
+  margin-top: 10px !important;
+  background-color: #ede6d9 !important;
+}
+
+.MuiGrid-spacing-xs-6, .MuiGrid-spacing-xs-1 {
+  width: 100% !important;
+}
+
+.sliderContainer {
+  margin-top: 250px !important;
+}
+
+.slick-dots {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  top: -200px !important;
+  bottom: auto !important;
+}
+
+.slick-dots li {
+  width: 50px !important;
+  height: 50px !important;
+  margin-bottom: 10px !important;
+}
+
+.small-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
