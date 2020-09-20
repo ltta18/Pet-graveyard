@@ -9,6 +9,8 @@ import {
   Typography,
 } from "@material-ui/core";
 import Slider from "react-slick";
+import { DiscussionEmbed } from "disqus-react";
+
 const Cemetery = (props) => {
   const { id } = props.match.params;
 
@@ -26,6 +28,12 @@ const Cemetery = (props) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+  };
+  const disqusShortName = "pet-graveyard-com";
+  const disqusConfig = {
+    identifier: id, // you can define anything as "identifier" for each blog post
+    title: id,
+    url: window.location.href,
   };
   return (
     <Container className="cemetery-container" maxWidth="lg">
@@ -83,17 +91,21 @@ const Cemetery = (props) => {
                 Giới thiệu chung
               </Typography>
             </Grid>
-            <Grid container className="pet-info-comment" spacing={2}>
-              <Grid className="comment-box" item xs={8}>
-                <InputBase
+            <Grid className="pet-info-comment">
+              {/* <Grid className="comment-box" item xs={8}> */}
+              <DiscussionEmbed
+                shortname={disqusShortName}
+                config={disqusConfig}
+              />
+              {/* <InputBase
                   className="comment-input"
                   fullWidth
                   placeholder="Hãy gõ lời bạn muốn nhắn nhủ ở đây"
-                />
-              </Grid>
-              <Grid className="comment-send" item xs={4}>
+                /> */}
+              {/* </Grid> */}
+              {/* <Grid className="comment-send" item xs={4}>
                 <Button variant="contained">Thắp hương</Button>
-              </Grid>
+              </Grid> */}
             </Grid>
           </Grid>
         </Grid>
