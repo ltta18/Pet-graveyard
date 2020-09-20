@@ -9,34 +9,32 @@ import "./index.css";
 
 function HomePage() {
   const [zoneName, setZoneName] = useState('A');
+  const [open, setOpen] = React.useState(false);
 
-  const handleClickGrave = zoneName => {
-    let filter = document.getElementById("black-filter");
-    let graveyard = document.getElementById("graveyard-zone");
-    filter.style.display = "";
-    graveyard.style.display = "";
-    setZoneName(zoneName);
+  const handleOpen = () => {
+    setOpen(true);
   };
 
   const handleClose = () => {
-    let filter = document.getElementById("black-filter");
-    let graveyard = document.getElementById("graveyard-zone");
-    filter.style.display = "none";
-    graveyard.style.display = "none";
+    setOpen(false);
+  };
+
+  const handleClickGrave = zoneName => {
+    handleOpen();
+    setZoneName(zoneName);
   };
 
   return (
-    <Container>
-      <Container id="intro">
+    <Container maxWidth={false}>
+      <Container id="intro" maxWidth={false}>
         <ImageContainer />
         <Comment />
       </Container>
-      <Container id="body">
+      <Container id="body" maxWidth={false}>
         <SearchSection />
         <Graveyard handleClickGrave={handleClickGrave} />
       </Container>
-      <GraveyardZone zoneName={`Khu ${zoneName}`} handleClose={handleClose} />
-      <Container id="black-filter" style={{ display: "none" }}></Container>
+      <GraveyardZone zoneName={`Khu ${zoneName}`} handleClose={handleClose} open={open} />
     </Container>
   );
 }
