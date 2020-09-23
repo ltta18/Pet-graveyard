@@ -1,39 +1,40 @@
-import React from "react";
-import ImageContainer from "../../components/HomePage/ImageContainer";
-import Graveyard from "../../components/HomePage/Graveyard";
-import SearchSection from "../../components/HomePage/SearchSection";
-import Comment from "../../components/HomePage/Comment";
+import React, { useState } from "react";
+import ImageContainer from "../../components/homepage/ImageContainer";
+import Graveyard from "../../components/homepage/Graveyard";
+import SearchSection from "../../components/homepage/SearchSection";
+import Comment from "../../components/homepage/Comment";
+import GraveyardZone from "../../components/graveyardzone/GraveyardZone";
 import { Container } from "@material-ui/core";
 import "./index.css";
-import GraveyardZone from "../../components/GraveyardZone/GraveyardZone";
 
 function HomePage() {
-  const handleClickGrave = () => {
-    let filter = document.getElementById("black-filter");
-    let graveyard = document.getElementById("graveyard-zone");
-    filter.style.display = "";
-    graveyard.style.display = "";
+  const [zoneName, setZoneName] = useState('A');
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
   };
 
   const handleClose = () => {
-    let filter = document.getElementById("black-filter");
-    let graveyard = document.getElementById("graveyard-zone");
-    filter.style.display = "none";
-    graveyard.style.display = "none";
+    setOpen(false);
+  };
+
+  const handleClickGrave = zoneName => {
+    handleOpen();
+    setZoneName(zoneName);
   };
 
   return (
-    <Container>
-      <Container id="intro">
+    <Container maxWidth={false}>
+      <Container id="intro" maxWidth={false}>
         <ImageContainer />
         <Comment />
       </Container>
-      <Container id="body">
+      <Container id="body" maxWidth={false}>
         <SearchSection />
-        <Graveyard handleClickGrave={() => handleClickGrave()} />
+        <Graveyard handleClickGrave={handleClickGrave} />
       </Container>
-      <GraveyardZone zoneName="Khu A" handleClose={() => handleClose()} />
-      <Container id="black-filter" style={{ display: "none" }}></Container>
+      <GraveyardZone zoneName={`Khu ${zoneName}`} handleClose={handleClose} open={open} />
     </Container>
   );
 }

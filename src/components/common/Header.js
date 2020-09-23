@@ -9,8 +9,8 @@ function Header() {
     <Grid id="header">
       <img src="" alt="logo" id="logo"/>
       <Container>
-        <Button className="button">Đăng kí mộ</Button>
         <Button className="button">Donate</Button>
+        <Button className="button">Đăng kí mộ</Button>
       </Container>
     </Grid>
   );
