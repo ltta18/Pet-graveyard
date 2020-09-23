@@ -5,10 +5,20 @@ import {
   Container,
   Grid,
   InputBase,
-  TextField,
-  Typography,
+  Typography
 } from "@material-ui/core";
 import Slider from "react-slick";
+import CustomSlide from "../../components/common/CustomSlide";
+
+const SLIDE_IMAGES = [
+  "https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697",
+  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1144982182.jpg",
+  "https://images.english.elpais.com/resizer/8cNVrZOU1KaW0whQODrMSxdaofY=/768x0/filters:focal(1052x792:1062x802)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/IPZM424KYBEH7IVUKNQZETWHVU.jpg",
+  "https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697",
+  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1144982182.jpg",
+  "https://images.english.elpais.com/resizer/8cNVrZOU1KaW0whQODrMSxdaofY=/768x0/filters:focal(1052x792:1062x802)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/IPZM424KYBEH7IVUKNQZETWHVU.jpg",
+]
+
 const Cemetery = (props) => {
   const { id } = props.match.params;
 
@@ -25,8 +35,9 @@ const Cemetery = (props) => {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1,
+    slidesToScroll: 1
   };
+
   return (
     <Container className="cemetery-container" maxWidth="lg">
       <Grid container justify="center" alignItems="center">
@@ -39,42 +50,7 @@ const Cemetery = (props) => {
         <Grid className="cemetery-content" container spacing={2}>
           <Grid item xs={5}>
             <Slider {...settings}>
-              <div>
-                <img
-                  className="img"
-                  src="https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697"
-                />
-              </div>
-              <div>
-                <img
-                  className="img"
-                  src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1144982182.jpg"
-                />
-              </div>
-              <div>
-                <img
-                  className="img"
-                  src="https://images.english.elpais.com/resizer/8cNVrZOU1KaW0whQODrMSxdaofY=/768x0/filters:focal(1052x792:1062x802)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/IPZM424KYBEH7IVUKNQZETWHVU.jpg"
-                />
-              </div>
-              <div>
-                <img
-                  className="img"
-                  src="https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697"
-                />
-              </div>
-              <div>
-                <img
-                  className="img"
-                  src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1144982182.jpg"
-                />
-              </div>
-              <div>
-                <img
-                  className="img"
-                  src="https://images.english.elpais.com/resizer/8cNVrZOU1KaW0whQODrMSxdaofY=/768x0/filters:focal(1052x792:1062x802)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/IPZM424KYBEH7IVUKNQZETWHVU.jpg"
-                />
-              </div>
+              {SLIDE_IMAGES.map((url, i) => <CustomSlide url={url} index={i} className='img' />)}
             </Slider>
           </Grid>
           <Grid className="cemetery-pet" item xs={7}>

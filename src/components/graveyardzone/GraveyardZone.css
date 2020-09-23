@@ -12,12 +12,12 @@
 
 .graveyard-body {
   position: fixed;
-  width: 85% !important;
-  height: 85%;
   background-color: #EDE6D9;
   z-index: 2;
-  top: 7.5%;
+  top: 10%;
+  bottom: 10%;
   left: 7.5%;
+  right: 7.5%;
   overflow: auto;
 }
 

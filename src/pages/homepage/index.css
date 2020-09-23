@@ -1,7 +1,28 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
 #intro {
   display: flex;
   background: #D2D8E8 !important; 
   padding: 2rem !important;
+  text-align: center;
 }
 
 .MuiContainer-root {
@@ -16,6 +37,7 @@
   margin-bottom: 100px;
   padding: 2rem !important;
   display: flex;
+  text-align: center;
 }
 
 #black-filter {
