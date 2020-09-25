@@ -13,7 +13,7 @@ function Comment() {
 
   return (
     <Container id="comment-section">
-      <Typography>Comment</Typography>
+      {/* <Typography>Comment</Typography> */}
       <DiscussionEmbed shortname={disqusShortName} config={disqusConfig} />
       {/* <Box id="comment-box">
         <Typography>A: Chào buổi sáng mọi người</Typography>
