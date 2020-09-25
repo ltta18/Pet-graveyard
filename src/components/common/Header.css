@@ -1,6 +1,8 @@
 #header {
+  display: flex;
+  justify-content: space-between;
   height: 70px;
-  padding: 20px 0;
+  padding: 20px 30px;
 }
 
 #logo {
@@ -8,12 +10,12 @@
   margin-left: 2rem !important;
 }
 
-.button { 
-  background: #EDE6D9 !important;
+.button {
+  background: #ede6d9 !important;
   width: 150px;
   height: 50px;
   border-radius: 5px;
-  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.05); 
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.05);
   float: right;
   margin-left: 2rem !important;
 }
