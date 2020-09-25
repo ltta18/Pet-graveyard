@@ -13,8 +13,8 @@ function Headstone(props) {
   const { img, name } = props;
 
   return (
-    <Link to={{ pathname: `cemetery/${name}` }}>
-      <Card className="headstone">
+    <Link className="headstone" to={{ pathname: `cemetery/${name}` }}>
+      <Card>
         <CardActionArea>
           <CardMedia
             component="img"
@@ -24,7 +24,7 @@ function Headstone(props) {
             title="Headstone Image"
           />
           <CardContent>
-            <Typography component="p">{name}</Typography>
+            <Typography component="div" className="grave-name">{name}</Typography>
           </CardContent>
         </CardActionArea>
       </Card>
