@@ -7,11 +7,13 @@
 }
 
 .grave {
-  width: 130px;
+  display: flex !important;
+  width: 130px !important;
   height: 130px;
   background: #6E6F7F;
   color: #fff;
-  justify-content: center;
   margin-bottom: 10px;
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
 }
