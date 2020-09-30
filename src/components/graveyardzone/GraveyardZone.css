@@ -19,6 +19,7 @@
   left: 7.5%;
   right: 7.5%;
   overflow: auto;
+  width: auto !important;
 }
 
 .header {

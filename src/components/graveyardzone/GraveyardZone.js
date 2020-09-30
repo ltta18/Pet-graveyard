@@ -1,7 +1,11 @@
-import { Container, Modal, Typography } from "@material-ui/core";
+import {
+  Container,
+  Modal,
+  Typography
+} from "@material-ui/core";
 import React from "react";
-import "./GraveyardZone.css";
 import Headstone from "./Headstone";
+import "./GraveyardZone.css";
 
 function GraveyardZone(props) {
   const { zoneName, handleClose, open } = props;
