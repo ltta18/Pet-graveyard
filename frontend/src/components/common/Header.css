@@ -1,21 +1,25 @@
 #header {
-  display: flex;
-  justify-content: space-between;
-  height: 70px;
-  padding: 20px 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-#logo {
-  float: left;
-  margin-left: 2rem !important;
-}
-
-.button {
-  background: #ede6d9 !important;
+.button { 
+  background: #EDE6D9 !important;
   width: 150px;
   height: 50px;
   border-radius: 5px;
   box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.05);
-  float: right;
-  margin-left: 2rem !important;
+}
+
+.button:first-child {
+  margin-right: 2rem;
+}
+
+.MuiFab-primary {
+  color: #000 !important;
+  background-color: #d2d8e8 !important;
+}
+
+.MuiMenu-list {
+  background-color: #ede6d9;
 }

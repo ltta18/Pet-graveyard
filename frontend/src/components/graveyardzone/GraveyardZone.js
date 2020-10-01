@@ -1,44 +1,24 @@
-import { Container, Modal, Typography } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
-import "./GraveyardZone.css";
+import {
+  Container,
+  Modal,
+  Typography
+} from "@material-ui/core";
+import React from "react";
 import Headstone from "./Headstone";
-import { GoogleSpreadsheet } from "google-spreadsheet";
-
-export const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
-export const SHEET_ID = process.env.REACT_APP_SHEET_ID;
-export const CLIENT_EMAIL = process.env.REACT_APP_GOOGLE_CLIENT_EMAIL;
-export const PRIVATE_KEY = process.env.REACT_APP_GOOGLE_SERVICE_PRIVATE_KEY;
-
-const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
+import "./GraveyardZone.css";
 
 function GraveyardZone(props) {
   const { zoneName, handleClose, open } = props;
-  const [data, setData] = useState([]);
 
-  useEffect(() => {
-    async function getData() {
-      await doc.useServiceAccountAuth({
-        client_email: CLIENT_EMAIL,
-        private_key: PRIVATE_KEY,
-      });
-      // loads document properties and worksheets
-      await doc.loadInfo();
-
-      const sheet = doc.sheetsById[SHEET_ID];
-      const rows = await sheet.getRows();
-      setData(rows);
-    }
-
-    getData();
-  }, []);
+  const indexArr = [...Array(30).keys()];
 
   return (
     <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="simple-modal-title"
-      aria-describedby="simple-modal-description"
-    >
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
       <Container id="graveyard-zone" maxWidth={false}>
         <Container className="graveyard-body">
           <Container className="header">
@@ -46,14 +26,7 @@ function GraveyardZone(props) {
             <button className="x-icon" onClick={handleClose}></button>
           </Container>
           <Container className="headstone-list">
-            {data.map((obj, index) => (
-              <Headstone
-                name={obj["Tên thú cưng"]}
-                img={obj["Link ảnh"]}
-                id={obj._rowNumber}
-                key={index}
-              />
-            ))}
+            {indexArr.map(index => <Headstone name={`${zoneName}${index+1}`} img={require("../../img/book.jpg")} key={index}/>)}
           </Container>
         </Container>
       </Container>
