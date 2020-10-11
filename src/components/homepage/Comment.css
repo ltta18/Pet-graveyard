@@ -1,6 +1,12 @@
 #comment-section {
-  width: 45%;
+  width: 50%;
   margin-right: 0 !important;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+#disqus_thread #dsq-app2957 html body #layout #thread__container {
+  color: red;
 }
 
 #comment-box {
@@ -13,7 +19,7 @@
 }
 
 #text-input {
-  background: #EDE6D9;
+  background: #ede6d9;
 }
 
 .MuiFilledInput-input {

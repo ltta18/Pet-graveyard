@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import Slider from "react-slick";
+import { DiscussionEmbed } from "disqus-react";
 import CustomSlide from "../../components/common/CustomSlide";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 
@@ -57,6 +58,12 @@ const Cemetery = (props) => {
 
     getData();
   }, []);
+  const disqusShortName = "pet-graveyard-com";
+  const disqusConfig = {
+    identifier: id, // you can define anything as "identifier" for each blog post
+    title: id,
+    url: window.location.href,
+  };
 
   return (
     data && (
@@ -112,8 +119,15 @@ const Cemetery = (props) => {
                   <Button variant="contained">Thắp hương</Button>
                 </Grid>
               </Grid>
+            <Grid className="pet-info-comment">
+              <DiscussionEmbed
+                shortname={disqusShortName}
+                config={disqusConfig}
+              />
+              
             </Grid>
           </Grid>
+        </Grid>
         </Grid>
       </Container>
     )
