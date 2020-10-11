@@ -1,38 +1,35 @@
 #graveyard-zone {
-  position: fixed;
+  position: relative;
   width: 90% !important;
   height: 90%;
   background-color: white;
-  z-index: 2;
   top: 5%;
-  left: 5%;
-  border: 2px solid #EDE6D9 !important;
-  overflow: hidden;
+  border: 2px solid #ede6d9 !important;
 }
 
 .graveyard-body {
-  position: fixed;
-  background-color: #EDE6D9;
-  z-index: 2;
-  top: 10%;
-  bottom: 10%;
-  left: 7.5%;
-  right: 7.5%;
-  overflow: auto;
+  width: auto !important;
+  position: absolute;
+  background-color: #ede6d9;
+  top: 7.5%;
+  bottom: 7.5%;
+  left: 5%;
+  right: 5%;
+  overflow-y: scroll;
 }
 
 .header {
   display: flex !important;
-  width: 81% !important;
+  width: 96% !important;
   text-align: center;
   padding-top: 10px;
-  position: fixed;
-  background-color: #EDE6D9;
+  /* position: fixed; */
+  background-color: #ede6d9;
   z-index: 3;
 }
 
 .x-icon {
-  background: url('../../img/x.svg') no-repeat;
+  background: url("../../img/x.svg") no-repeat;
   width: 2rem !important;
   height: 2rem;
   cursor: pointer;
