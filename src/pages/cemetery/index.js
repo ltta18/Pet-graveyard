@@ -11,6 +11,7 @@ import Slider from "react-slick";
 import { DiscussionEmbed } from "disqus-react";
 import CustomSlide from "../../components/common/CustomSlide";
 import { GoogleSpreadsheet } from "google-spreadsheet";
+import {firestore} from '../../firebase.js'
 
 import {
   SPREADSHEET_ID,
@@ -18,6 +19,7 @@ import {
   CLIENT_EMAIL,
   PRIVATE_KEY,
 } from "../../components/graveyardzone/GraveyardZone";
+import Comments from "../../components/Comments";
 
 const SLIDE_IMAGES = [
   "https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697",
@@ -32,6 +34,8 @@ const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 const Cemetery = (props) => {
   const { id } = props.match.params;
   const [data, setData] = useState(null);
+  const [comments, setComments] = useState([{name: "Elon", content: "Hello, I also went there.", pId: null, time: null}])
+
 
   const settings = {
     dots: true,
@@ -58,12 +62,20 @@ const Cemetery = (props) => {
 
     getData();
   }, []);
-  const disqusShortName = "pet-graveyard-com";
-  const disqusConfig = {
-    identifier: id, // you can define anything as "identifier" for each blog post
-    title: id,
-    url: window.location.href,
-  };
+
+
+  useEffect(() => {
+    firestore
+      .collection(`comments`)
+      .onSnapshot(snapshot => {
+        const posts = snapshot.docs
+        .filter(doc => doc.data().slug === id)
+        .map(doc => {
+          return { id: doc.id, ...doc.data() }
+        })
+        setComments(posts)
+      })
+}, [id])
 
   return (
     data && (
@@ -120,10 +132,12 @@ const Cemetery = (props) => {
                 </Grid>
               </Grid>
             <Grid className="pet-info-comment">
-              <DiscussionEmbed
+
+              {/* <DiscussionEmbed
                 shortname={disqusShortName}
                 config={disqusConfig}
-              />
+              /> */}
+              <Comments comments={comments} slug={id} />
               
             </Grid>
           </Grid>

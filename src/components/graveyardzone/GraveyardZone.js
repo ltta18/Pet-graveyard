@@ -26,7 +26,6 @@ function GraveyardZone(props) {
 
       const sheet = doc.sheetsById[SHEET_ID];
       const rows = await sheet.getRows();
-      console.log(rows[0]._rowNumber);
       setData(rows);
     }
 
