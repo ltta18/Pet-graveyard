@@ -10,10 +10,10 @@ import {
 import { Link } from "react-router-dom";
 
 function Headstone(props) {
-  const { img, name, id } = props;
+  const { img, name } = props;
 
   return (
-    <Link className="headstone" to={{ pathname: `cemetery/${id}` }}>
+    <Link className="headstone" to={{ pathname: `cemetery/${name}` }}>
       <Card>
         <CardActionArea>
           <CardMedia
