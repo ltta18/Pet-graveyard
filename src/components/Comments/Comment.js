@@ -17,7 +17,9 @@ const CommentBox = styled.article`
   }
   .comment-author {
     font-size: 18px;
+    text-align: left;
     text-transform: uppercase;
+    margin-top: 0;
     margin-bottom: 5px;
     font-weight: 700;
     span {
@@ -26,25 +28,30 @@ const CommentBox = styled.article`
       font-style: italic;
     }
   }
+  .comment-content {
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 `
 
 const SingleComment = ({ comment }) => (
   <div>
-    <div className="flex-container">
-      <div className="flex">
+    <div style={{ display: 'flex' }}>
+      {/* <div className="flex">
         <img
           src="https://api.adorable.io/avatars/65/abott@adorable.png"
           alt="Avatar"
         />
-      </div>
+      </div> */}
       <div className="flex">
         <p className="comment-author">
           {comment.name} <span>says</span>
         </p>
-        {comment.time && (<time>{moment(comment.time.toDate()).calendar()}</time>)}
+        {comment.time && (<time style={{ fontSize: 12 }}>{moment(comment.time.toDate()).calendar()}</time>)}
       </div>
+      <p className="comment-content">{comment.content}</p>
     </div>
-    <p>{comment.content}</p>
   </div>
 )
 
@@ -58,8 +65,9 @@ const Comment = ({ comment, child, slug }) => {
           <SingleComment comment={child} />
         </CommentBox>
       )}
-      {!child && (
+      {/* {!child && (
         <div>
+          <CommentForm parentId={comment.id} slug={slug} />
           {showReplyBox ? (
             <div>
               <button
@@ -76,7 +84,7 @@ const Comment = ({ comment, child, slug }) => {
             </button>
           )}
         </div>
-      )}
+      )} */}
     </CommentBox>
   )
 }

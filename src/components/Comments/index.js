@@ -17,39 +17,45 @@ import CommentForm from "./CommentForm"
 import styled from "styled-components"
 
 const CommentList = styled.div`
+  background: #EDE6D9;
+  height: 150px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
+  overflow: auto;
+
   article {
-    margin-bottom: 20px;
+    padding: 0;
+    border: none;
   }
 `
 
 const Comments = ({ comments, slug }) => {
-
-
   return (
-    <div>
-            <h2>Join the discussion</h2>
+    <div style={{ marginLeft: 20, width: '100%' }}>
+          <h2 style={{ margin: 0, marginBottom: 10 }}>TRÒ CHUYỆN</h2>
             
-            <CommentList>
-                {comments.length > 0 &&
-                    comments
-                        .filter(comment => !comment.pId)
-                        .map(comment => {
-                            let child
-                            if (comment.id) {
-                                child = comments.find(c => comment.id === c.pId)
-                            }
-                            return (
-                                <Comment
-                                    key={comment.id}
-                                    child={child}
-                                    comment={comment}
-                                    slug={slug}
-                                />
-                            )
-                        })}
-                    </CommentList>
-                    <CommentForm slug={slug} />
-                </div>
+          <CommentList id="comment-list">
+              {comments.length > 0 &&
+                  comments
+                      .filter(comment => !comment.pId)
+                      .map(comment => {
+                          let child
+                          if (comment.id) {
+                              child = comments.find(c => comment.id === c.pId)
+                          }
+                          return (
+                              <Comment
+                                  key={comment.id}
+                                  child={child}
+                                  comment={comment}
+                                  slug={slug}
+                              />
+                          )
+                      })}
+          </CommentList>
+          <CommentForm slug={slug} />
+    </div>
   );
 };
 

@@ -7,7 +7,7 @@ import GraveyardZone from "../../components/graveyardzone/GraveyardZone";
 import { Container } from "@material-ui/core";
 import "./index.css";
 import Comments from "../../components/Comments";
-import {firestore} from '../../firebase.js'
+import { firestore } from '../../firebase.js'
 
 function HomePage() {
   const [zoneName, setZoneName] = useState('A');
