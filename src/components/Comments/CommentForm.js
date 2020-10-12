@@ -60,6 +60,8 @@ const CommentForm = ({ parentId, slug }) => {
     setContent("")
     console.log(comment)
     
+    var objDiv = document.getElementById("comment-list");
+    objDiv.scrollTop = objDiv.scrollHeight;
   }
 
   return (
