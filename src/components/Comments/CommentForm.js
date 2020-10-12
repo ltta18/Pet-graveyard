@@ -1,5 +1,5 @@
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import { firestore } from "../../firebase.js"
@@ -14,16 +14,25 @@ const CommentBox = styled.div`
     font-family: "Hind", sans-serif;
     font-weight: 400;
     padding: 10px 12px 8px;
-    width: 100%;
+    width: 80%;
     font-variant-numeric: lining-nums;
     font-feature-settings: "lnum";
   }
   input[type="text"] {
-    width: 50%;
+    width: 80%;
   }
   label {
     display: block;
-    margin-bottom: 20px;
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+  }
+  button {
+    padding: 10px; 
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
   }
 `
 
@@ -50,33 +59,36 @@ const CommentForm = ({ parentId, slug }) => {
     setName("")
     setContent("")
     console.log(comment)
+    
   }
 
   return (
     <CommentBox>
-      <form onSubmit={e => handleCommentSubmission(e)}>
-        <label htmlFor="name">
-          Name
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={e => setName(e.target.value)}
-            required
-          />
-        </label>
-        <label htmlFor="comment">
-          Comment
-          <textarea
-            id="comment"
-            onChange={e => setContent(e.target.value)}
-            value={content}
-            name="comment"
-            required="required"
-            cols="45"
-            rows="8"
-          ></textarea>
-        </label>
+      <form style={{display: 'flex', alignItems: 'flex-end'}} onSubmit={e => handleCommentSubmission(e)}>
+        {/* <div style=> */}
+          <label htmlFor="name">
+            Tên
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={e => setName(e.target.value)}
+              required
+            />
+          </label>
+          <label htmlFor="comment">
+            Lời muốn nói
+            <textarea
+              id="comment"
+              onChange={e => setContent(e.target.value)}
+              value={content}
+              name="comment"
+              required="required"
+              cols="45"
+              rows="1"
+            ></textarea>
+          </label>
+        {/* </div> */}
         <button type="submit" className="btn">
           Submit
         </button>
