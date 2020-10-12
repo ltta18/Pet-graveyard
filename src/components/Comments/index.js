@@ -32,7 +32,7 @@ const CommentList = styled.div`
 
 const Comments = ({ comments, slug }) => {
   return (
-    <div style={{ marginLeft: 20, width: '100%' }}>
+    <div style={{ marginLeft: 40, width: '100%' }}>
           <h2 style={{ margin: 0, marginBottom: 10 }}>TRÒ CHUYỆN</h2>
             
           <CommentList id="comment-list">
