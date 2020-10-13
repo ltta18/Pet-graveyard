@@ -75,7 +75,7 @@ const Cemetery = (props) => {
         })
         setComments(posts)
       })
-}, [id])
+  }, [id])
 
   return (
     data && (
