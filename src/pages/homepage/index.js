@@ -50,7 +50,7 @@ function HomePage() {
         <SearchSection />
         <Graveyard handleClickGrave={handleClickGrave} />
       </Container>
-      <GraveyardZone zoneName={`Khu ${zoneName}`} handleClose={handleClose} open={open} />
+      <GraveyardZone zoneName={`Khu ${zoneName}`} handleClose={handleClose} open={open}/>
     </Container>
   );
 }
