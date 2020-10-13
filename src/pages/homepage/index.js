@@ -38,7 +38,7 @@ function HomePage() {
         })
         setComments(posts)
       })
-}, [id])
+  }, [id])
 
   return (
     <Container maxWidth={false}>

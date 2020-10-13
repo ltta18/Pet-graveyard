@@ -19,7 +19,7 @@ const CommentBox = styled.div`
     font-variant-numeric: lining-nums;
     font-feature-settings: "lnum";
   }
-  textarea:focus {
+  textarea:focus, input[type="text"]:focus {
     outline: none;
   }
   input[type="text"] {
@@ -38,6 +38,7 @@ const CommentBox = styled.div`
     background-color: ${props => props.isCemetery ? '#ede6d9' : '#fff'};
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 3px;
+    text-transform: uppercase;
   }
 `
 
@@ -64,10 +65,6 @@ const CommentForm = ({ parentId, slug }) => {
     })
     setName("")
     setContent("")
-    console.log(comment)
-    
-    var objDiv = document.getElementById("comment-list");
-    objDiv.scrollTop = objDiv.scrollHeight;
   }
 
   return (
@@ -105,9 +102,12 @@ const CommentForm = ({ parentId, slug }) => {
         </button> */}
         {isCemetery &&
          <div className="comment-send">
-          <Button variant="contained" style={{ width: '100%', marginTop: '10px'}}>
-            Thắp hương
-          </Button>
+          <button
+            variant="contained"
+            style={{ width: '100%', height: '100%', marginTop: '10px' }}>
+            <img src={require("../../img/incense.svg")} width="30px" height="30px" />
+            <div>Thắp hương</div>
+          </button>
         </div>}
       </form>
     </CommentBox>

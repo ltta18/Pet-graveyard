@@ -34,6 +34,11 @@ const CommentList = styled.div`
 const Comments = ({ comments, slug }) => {
   const isCemetery = window.location.href.split('/')[3] === 'cemetery' ? true : false;
 
+  useEffect(() => {
+    var objDiv = document.getElementById("comment-list");
+    objDiv.scrollTop = objDiv.scrollHeight;
+  }, [comments])
+
   return (
     <div style={{ marginLeft: 40, width: '100%' }}>
           <h2 style={{ margin: 0, marginBottom: 10, textAlign: 'center' }}>
@@ -41,9 +46,11 @@ const Comments = ({ comments, slug }) => {
           </h2>
             
           <CommentList id="comment-list">
+            {console.log(comments)}
               {comments.length > 0 &&
                   comments
                       .filter(comment => !comment.pId)
+                      .sort(function(a,b) {return a.time - b.time})
                       .map(comment => {
                           let child
                           if (comment.id) {
