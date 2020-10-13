@@ -23,6 +23,7 @@ const CommentList = styled.div`
   padding-right: 10px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
   overflow: auto;
+  border-radius: 3px;
 
   article {
     padding: 0;
@@ -31,9 +32,13 @@ const CommentList = styled.div`
 `
 
 const Comments = ({ comments, slug }) => {
+  const isCemetery = window.location.href.split('/')[3] === 'cemetery' ? true : false;
+
   return (
     <div style={{ marginLeft: 40, width: '100%' }}>
-          <h2 style={{ margin: 0, marginBottom: 10 }}>TRÒ CHUYỆN</h2>
+          <h2 style={{ margin: 0, marginBottom: 10, textAlign: 'center' }}>
+            {isCemetery ? 'LỜI NHẮN GỬI' : 'TRÒ CHUYỆN'}
+          </h2>
             
           <CommentList id="comment-list">
               {comments.length > 0 &&

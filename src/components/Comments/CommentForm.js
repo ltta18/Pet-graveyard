@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import PropTypes from "prop-types"
 import { firestore } from "../../firebase.js"
+import { Button } from "@material-ui/core"
 
 const CommentBox = styled.div`
   input,
@@ -14,9 +15,12 @@ const CommentBox = styled.div`
     font-family: "Hind", sans-serif;
     font-weight: 400;
     padding: 10px 12px 8px;
-    width: 80%;
+    width: ${props => props.isCemetery ? '90%' : '80%'};
     font-variant-numeric: lining-nums;
     font-feature-settings: "lnum";
+  }
+  textarea:focus {
+    outline: none;
   }
   input[type="text"] {
     width: 80%;
@@ -26,11 +30,12 @@ const CommentBox = styled.div`
     width: 100%;
     margin-top: 10px;
     text-align: left;
+    overflow:hidden;
   }
   button {
     padding: 10px; 
     height: 40px;
-    background-color: #fff;
+    background-color: ${props => props.isCemetery ? '#ede6d9' : '#fff'};
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 3px;
   }
@@ -40,7 +45,8 @@ const CommentBox = styled.div`
 const CommentForm = ({ parentId, slug }) => {
   const [name, setName] = useState("")
   const [content, setContent] = useState("")
-
+  const isCemetery = window.location.href.split('/')[3] === 'cemetery' ? true : false;
+  
   const handleCommentSubmission = async e => {
     e.preventDefault()
     let comment = {
@@ -65,9 +71,10 @@ const CommentForm = ({ parentId, slug }) => {
   }
 
   return (
-    <CommentBox>
-      <form style={{display: 'flex', alignItems: 'flex-end'}} onSubmit={e => handleCommentSubmission(e)}>
+    <CommentBox isCemetery={isCemetery}>
+      <form onSubmit={e => handleCommentSubmission(e)}>
         {/* <div style=> */}
+        <div style={{display: 'flex', alignItems: 'flex-end'}}>
           <label htmlFor="name">
             Tên
             <input
@@ -90,10 +97,18 @@ const CommentForm = ({ parentId, slug }) => {
               rows="1"
             ></textarea>
           </label>
+          {!isCemetery && <button type="submit" className="btn">Submit</button>}
+        </div>
         {/* </div> */}
-        <button type="submit" className="btn">
+        {/* <button type="submit" className="btn">
           Submit
-        </button>
+        </button> */}
+        {isCemetery &&
+         <div className="comment-send">
+          <Button variant="contained" style={{ width: '100%', marginTop: '10px'}}>
+            Thắp hương
+          </Button>
+        </div>}
       </form>
     </CommentBox>
   )
