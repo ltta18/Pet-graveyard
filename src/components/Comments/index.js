@@ -18,7 +18,7 @@ import styled from "styled-components"
 
 const CommentList = styled.div`
   background: #EDE6D9;
-  height: 150px;
+  max-height: 200px;
   padding-left: 10px;
   padding-right: 10px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);

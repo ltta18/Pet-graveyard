@@ -18,7 +18,6 @@ const CommentBox = styled.article`
   .comment-author {
     font-size: 18px;
     text-align: left;
-    text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 5px;
     font-weight: 700;
@@ -33,24 +32,32 @@ const CommentBox = styled.article`
     margin-top: 0;
     margin-bottom: 0;
   }
+  time {
+    font-size: 12px;
+    font-style: italic;
+    margin-top: auto;
+    margin-bottom: 6px;
+    margin-left: 4px;
+  }
 `
 
 const SingleComment = ({ comment }) => (
   <div>
-    <div style={{ display: 'flex' }}>
+    <div>
       {/* <div className="flex">
         <img
           src="https://api.adorable.io/avatars/65/abott@adorable.png"
           alt="Avatar"
         />
       </div> */}
-      <div className="flex">
+      <div className="flex" style={{ display: 'flex', flexShrink: 0 }}>
         <p className="comment-author">
-          {comment.name} <span>says</span>
+          {comment.name}
         </p>
-        {comment.time && (<time style={{ fontSize: 12 }}>{moment(comment.time.toDate()).calendar()}</time>)}
+        {comment.time && (<time>{moment(comment.time.toDate()).calendar()}</time>)}
+        
       </div>
-      <p className="comment-content">{comment.content}</p>
+      <p className="comment-content" style={{ textAlign: 'left' }}>{comment.content}</p>
     </div>
   </div>
 )
