@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import ImageContainer from "../../components/homepage/ImageContainer";
 import Graveyard from "../../components/homepage/Graveyard";
 import SearchSection from "../../components/homepage/SearchSection";
-import Comment from "../../components/homepage/Comment";
 import GraveyardZone from "../../components/graveyardzone/GraveyardZone";
 import { Container } from "@material-ui/core";
 import "./index.css";

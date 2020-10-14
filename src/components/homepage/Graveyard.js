@@ -1,6 +1,10 @@
 import React from 'react';
+import {
+  Container,
+  Grid,
+  Typography
+} from '@material-ui/core';
 import './Graveyard.css';
-import { Container, Grid, Typography } from '@material-ui/core';
 
 function Graveyard(props) {
   const { handleClickGrave } = props

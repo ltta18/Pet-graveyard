@@ -1,9 +1,7 @@
 
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
-import PropTypes from "prop-types"
 import { firestore } from "../../firebase.js"
-import { Button } from "@material-ui/core"
 
 const CommentBox = styled.div`
   input,

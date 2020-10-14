@@ -1,6 +1,11 @@
 import React from 'react';
+import {
+  Container,
+  Box,
+  TextField,
+  Typography
+} from '@material-ui/core';
 import './SearchSection.css';
-import { Container, Box, TextField, Typography } from '@material-ui/core';
 
 function SearchSection() {
   return (

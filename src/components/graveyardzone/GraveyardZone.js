@@ -1,8 +1,12 @@
-import { Container, Modal, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
-import "./GraveyardZone.css";
 import Headstone from "./Headstone";
+import {
+  Container,
+  Modal,
+  Typography
+} from "@material-ui/core";
 import { GoogleSpreadsheet } from "google-spreadsheet";
+import "./GraveyardZone.css";
 
 export const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
 export const SHEET_ID = process.env.REACT_APP_SHEET_ID;

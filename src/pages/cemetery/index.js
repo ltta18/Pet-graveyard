@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
 import {
-  Button,
   Container,
   Grid,
-  InputBase,
   Typography,
 } from "@material-ui/core";
 import Slider from "react-slick";
-import { DiscussionEmbed } from "disqus-react";
 import CustomSlide from "../../components/common/CustomSlide";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { firestore } from '../../firebase.js'
@@ -34,7 +31,7 @@ const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 const Cemetery = (props) => {
   const { id } = props.match.params;
   const [data, setData] = useState(null);
-  const [comments, setComments] = useState([{name: "Elon", content: "Hello, I also went there.", pId: null, time: null}])
+  const [comments, setComments] = useState([{ name: "Elon", content: "Hello, I also went there.", pId: null, time: null }])
 
 
   const settings = {
@@ -61,6 +58,7 @@ const Cemetery = (props) => {
     }
 
     getData();
+    
   }, []);
 
 
@@ -103,43 +101,17 @@ const Cemetery = (props) => {
                   Giới thiệu chung
                 </Typography>
                 <Grid className="cemetery-pet-info-content">
-                  <p>
-                    <b>Tên thú cưng:</b> {data["Tên thú cưng"]}
-                  </p>
-                  <p>
-                    <b>Tuổi thú cưng:</b> {data["Tuổi thú cưng"]}
-                  </p>
-                  <p>
-                    <b>Ngày sinh:</b> {data["Ngày sinh"]}
-                  </p>
-                  <p>
-                    <b>Ngày mất:</b> {data["Ngày mất"]}
-                  </p>
-                  <p>
-                    <b>Lời từ biệt:</b> {data["Lời từ biệt"]}
-                  </p>
+                  {['Tên thú cưng', 'Tuổi thú cưng', 'Ngày sinh', 'Ngày mất', 'Lời từ biệt'].map((item) => {
+                    return (
+                      <p>
+                        <b>{item}:</b> {data[item]}
+                      </p>
+                    )
+                  })}
                 </Grid>
               </Grid>
-              {/* <Grid container className="pet-info-comment" spacing={2}>
-                <Grid className="comment-box" item xs={8}>
-                  <InputBase
-                    className="comment-input"
-                    fullWidth
-                    placeholder="Hãy gõ lời bạn muốn nhắn nhủ ở đây"
-                  />
-                </Grid>
-                <Grid className="comment-send" item xs={4}>
-                  <Button variant="contained">Thắp hương</Button>
-                </Grid>
-              </Grid> */}
             <Grid className="pet-info-comment">
-
-              {/* <DiscussionEmbed
-                shortname={disqusShortName}
-                config={disqusConfig}
-              /> */}
               <Comments comments={comments} slug={id} />
-              
             </Grid>
           </Grid>
         </Grid>
