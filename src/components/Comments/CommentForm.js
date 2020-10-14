@@ -15,7 +15,7 @@ const CommentBox = styled.div`
     font-family: "Hind", sans-serif;
     font-weight: 400;
     padding: 10px 12px 8px;
-    width: ${props => props.isCemetery ? '90%' : '80%'};
+    width: 100%;
     font-variant-numeric: lining-nums;
     font-feature-settings: "lnum";
   }
@@ -23,7 +23,7 @@ const CommentBox = styled.div`
     outline: none;
   }
   input[type="text"] {
-    width: 80%;
+    width: 100%;
   }
   label {
     display: block;
@@ -34,11 +34,14 @@ const CommentBox = styled.div`
   }
   button {
     padding: 10px; 
-    height: 40px;
     background-color: ${props => props.isCemetery ? '#ede6d9' : '#fff'};
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 3px;
     text-transform: uppercase;
+    width: 20%;
+    height: 150px;
+    margin-left: 10px;
+    cursor: pointer;
   }
 `
 
@@ -69,9 +72,9 @@ const CommentForm = ({ parentId, slug }) => {
 
   return (
     <CommentBox isCemetery={isCemetery}>
-      <form onSubmit={e => handleCommentSubmission(e)}>
+      <form style={{ display: 'flex', alignItems: 'flex-end' }} onSubmit={e => handleCommentSubmission(e)}>
         {/* <div style=> */}
-        <div style={{display: 'flex', alignItems: 'flex-end'}}>
+        <div style={{ width: '100%' }}>
           <label htmlFor="name">
             Tên
             <input
@@ -91,24 +94,21 @@ const CommentForm = ({ parentId, slug }) => {
               name="comment"
               required="required"
               cols="45"
-              rows="1"
+              rows="3"
             ></textarea>
           </label>
-          {!isCemetery && <button type="submit" className="btn">Submit</button>}
+          
         </div>
         {/* </div> */}
         {/* <button type="submit" className="btn">
           Submit
         </button> */}
-        {isCemetery &&
-         <div className="comment-send">
-          <button
-            variant="contained"
-            style={{ width: '100%', height: '100%', marginTop: '10px' }}>
-            <img src={require("../../img/incense.svg")} width="30px" height="30px" />
-            <div>Thắp hương</div>
+        {/* {!isCemetery && <button type="submit" className="btn">Submit</button>} */}
+          <button type="submit">
+            {isCemetery && <img src={require("../../img/incense.svg")} width="30px" height="30px" />}
+            <div>{isCemetery ? 'Thắp hương' : 'Submit'}</div>
           </button>
-        </div>}
+        
       </form>
     </CommentBox>
   )
