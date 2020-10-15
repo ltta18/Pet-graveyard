@@ -17,7 +17,7 @@ const SLIDE_IMAGES = [
 
 function ImageContainer () {
   const settings = {
-    dots: true,
+    // dots: true,
     infinite: true,
     speed: 400,
     slidesToShow: 3,
