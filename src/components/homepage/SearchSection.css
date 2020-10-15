@@ -7,16 +7,17 @@
 }
 
 .input-field {
-  background: #D2D8E8;
+  background: #d2d8e8;
   width: 90% !important;
   margin: 10px 5% !important;
 }
 
 .result {
-  background: #D2D8E8;
+  background: #d2d8e8;
   width: 90%;
   margin: 10px 5% !important;
-  height: 80%;
+  height: 75%;
+  overflow-y: scroll;
 }
 
 .MuiInput-underline:before {
