@@ -3,10 +3,10 @@ import ImageContainer from "../../components/homepage/ImageContainer";
 import Graveyard from "../../components/homepage/Graveyard";
 import SearchSection from "../../components/homepage/SearchSection";
 import GraveyardZone from "../../components/graveyardzone/GraveyardZone";
-import { Container } from "@material-ui/core";
-import "./index.css";
 import Comments from "../../components/Comments";
+import { Container } from "@material-ui/core";
 import { firestore } from '../../firebase.js'
+import "./index.css";
 
 function HomePage() {
   const [zoneName, setZoneName] = useState('A');

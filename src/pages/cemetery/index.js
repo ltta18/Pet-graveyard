@@ -1,31 +1,35 @@
 import React, { useEffect, useState } from "react";
-import "./index.css";
+import Comments from "../../components/Comments";
+import Slider from "react-slick";
+import CustomSlide from "../../components/common/CustomSlide";
+import { GoogleSpreadsheet } from "google-spreadsheet";
+import { firestore } from '../../firebase.js'
 import {
   Container,
   Grid,
   Typography,
 } from "@material-ui/core";
-import Slider from "react-slick";
-import CustomSlide from "../../components/common/CustomSlide";
-import { GoogleSpreadsheet } from "google-spreadsheet";
-import { firestore } from '../../firebase.js'
-
 import {
   SPREADSHEET_ID,
   SHEET_ID,
   CLIENT_EMAIL,
   PRIVATE_KEY,
 } from "../../components/graveyardzone/GraveyardZone";
-import Comments from "../../components/Comments";
+import "./index.css";
 
-const SLIDE_IMAGES = [
-  "https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697",
-  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1144982182.jpg",
-  "https://images.english.elpais.com/resizer/8cNVrZOU1KaW0whQODrMSxdaofY=/768x0/filters:focal(1052x792:1062x802)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/IPZM424KYBEH7IVUKNQZETWHVU.jpg",
-  "https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697",
-  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1144982182.jpg",
-  "https://images.english.elpais.com/resizer/8cNVrZOU1KaW0whQODrMSxdaofY=/768x0/filters:focal(1052x792:1062x802)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/IPZM424KYBEH7IVUKNQZETWHVU.jpg",
-];
+// const SLIDE_IMAGES = [
+//   "https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697",
+//   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1144982182.jpg",
+//   "https://images.english.elpais.com/resizer/8cNVrZOU1KaW0whQODrMSxdaofY=/768x0/filters:focal(1052x792:1062x802)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/IPZM424KYBEH7IVUKNQZETWHVU.jpg",
+//   "https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697",
+//   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1144982182.jpg",
+//   "https://images.english.elpais.com/resizer/8cNVrZOU1KaW0whQODrMSxdaofY=/768x0/filters:focal(1052x792:1062x802)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/IPZM424KYBEH7IVUKNQZETWHVU.jpg",
+//   "https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697",
+//   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1144982182.jpg",
+//   "https://static.toiimg.com/photo/msid-67586673/67586673.jpg?3918697",
+//   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1144982182.jpg",
+// ];
+
 const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
 
 const Cemetery = (props) => {
@@ -33,15 +37,26 @@ const Cemetery = (props) => {
   const [data, setData] = useState(null);
   const [comments, setComments] = useState([{ name: "Elon", content: "Hello, I also went there.", pId: null, time: null }])
 
-
   const settings = {
+    customPaging: function (i) {
+      const images = data['Link ảnh'].split(',')
+
+      return (
+        <a>
+          <img className="small-image" src={`https://drive.google.com/uc?export=view&${images[i].split('?')[1]}`} />
+          {/* <img className="small-image" src={SLIDE_IMAGES[i]} /> */}
+        </a>
+      );
+    
+    },
     dots: true,
     dotsClass: "slick-dots slick-thumb",
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1,
+    slidesToScroll: 1
   };
+
 
   useEffect(() => {
     async function getData() {
@@ -57,8 +72,7 @@ const Cemetery = (props) => {
       setData(rows.filter((row) => row._rowNumber == id)[0]);
     }
 
-    getData();
-    
+    getData(); 
   }, []);
 
 
@@ -75,6 +89,25 @@ const Cemetery = (props) => {
       })
   }, [id])
 
+  useEffect(() => {
+    if (data) {
+      // set top value for slickDots
+      const slickDot = document.getElementsByClassName('slick-dots')[0];
+      const sliderContainer = document.getElementsByClassName('sliderContainer')[0]
+      const sliderActive = document.getElementsByClassName('slick-active')[0]
+      const targetHeight = sliderContainer.clientHeight - sliderActive.clientHeight - 16
+      if (slickDot) slickDot.style.top = `-${targetHeight}px`;
+
+      // set top values for prev & next button 
+      const slickPrev = document.getElementsByClassName('slick-prev')[0];
+      const slickNext = document.getElementsByClassName('slick-next')[0];
+      if (slickPrev) {
+        slickPrev.style.top = `-${targetHeight - slickDot.clientHeight/2}px`
+        slickNext.style.top = `-${targetHeight - slickDot.clientHeight/2}px`
+      }
+    }
+  }, [data, comments])
+
   return (
     data && (
       <Container className="cemetery-container" maxWidth="lg">
@@ -86,14 +119,15 @@ const Cemetery = (props) => {
           </Grid>
 
           <Grid className="cemetery-content" container spacing={2}>
-            <Grid item xs={5}>
+            <Grid item xs={5} className="sliderContainer">
               <Slider {...settings}>
-                {console.log(data['Link ảnh'])}
-                {SLIDE_IMAGES.map((url, i) => (
-                  <CustomSlide url={url} index={i} className="img" />
+                {data['Link ảnh'].split(',').map((url, i) => (
+                  <CustomSlide url={`https://drive.google.com/uc?export=view&${url.split('?')[1]}`} index={i} key={i} className="img" />
                 ))}
+                {/* {SLIDE_IMAGES.map((url) => (
+                  <CustomSlide url={url} className="img" />
+                  ))} */}
               </Slider>
-              {/* <img style={{ width: "100%" }} src={data["Link ảnh"]} /> */}
             </Grid>
             <Grid className="cemetery-pet" item xs={7}>
               <Grid className="cemetery-pet-info">
@@ -103,7 +137,7 @@ const Cemetery = (props) => {
                 <Grid className="cemetery-pet-info-content">
                   {['Tên thú cưng', 'Tuổi thú cưng', 'Ngày sinh', 'Ngày mất', 'Lời từ biệt'].map((item) => {
                     return (
-                      <p>
+                      <p key={item}>
                         <b>{item}:</b> {data[item]}
                       </p>
                     )

@@ -13,7 +13,7 @@
 .img {
   /* position: relative; */
   object-fit: cover;
-  height: 200px;
+  height: 25rem;
   /* margin: 10px; */
   /* vertical-align: middle; */
   border-radius: 4px;
@@ -58,4 +58,30 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
+}
+
+.sliderContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.slick-dots {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, 4.5rem);
+  grid-gap: 1rem;
+  bottom: auto !important;
+  justify-content: center;
+}
+
+.slick-dots li {
+  display: block !important;
+  width: 4rem !important;
+  height: 4rem !important;
+}
+
+.small-image {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
 }
