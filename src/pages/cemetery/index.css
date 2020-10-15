@@ -28,6 +28,9 @@
 .cemetery-pet-info {
   width: 100%;
   height: 244px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-left: 40px;
   padding: 10px;
   background: #ede6d9;

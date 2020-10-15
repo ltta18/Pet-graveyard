@@ -40,6 +40,7 @@ const CommentBox = styled.div`
     height: 150px;
     margin-left: 10px;
     cursor: pointer;
+    font-family: "Barlow", -apple-system, Roboto, sans-serif;
   }
 `
 
@@ -104,7 +105,7 @@ const CommentForm = ({ parentId, slug }) => {
         {/* {!isCemetery && <button type="submit" className="btn">Submit</button>} */}
           <button type="submit">
             {isCemetery && <img src={require("../../img/incense.svg")} width="30px" height="30px" />}
-            <div>{isCemetery ? 'Thắp hương' : 'Gửi'}</div>
+            <div><b>{isCemetery ? 'Thắp hương' : 'Gửi'}</b></div>
           </button>
         
       </form>
