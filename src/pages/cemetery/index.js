@@ -90,7 +90,6 @@ const Cemetery = (props) => {
           <Grid className="cemetery-content" container spacing={2}>
             <Grid item xs={5}>
               <Slider {...settings}>
-                {console.log(data['Link ảnh'])}
                 {SLIDE_IMAGES.map((url, i) => (
                   <CustomSlide url={url} index={i} className="img" />
                 ))}
