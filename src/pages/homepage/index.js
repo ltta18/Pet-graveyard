@@ -7,7 +7,7 @@ import GraveyardZone from "../../components/graveyardzone/GraveyardZone";
 import { Container } from "@material-ui/core";
 import "./index.css";
 import Comments from "../../components/Comments";
-import {firestore} from '../../firebase.js'
+import { firestore } from '../../firebase.js'
 
 function HomePage() {
   const [zoneName, setZoneName] = useState('A');
@@ -38,7 +38,7 @@ function HomePage() {
         })
         setComments(posts)
       })
-}, [id])
+  }, [id])
 
   return (
     <Container maxWidth={false}>
@@ -50,7 +50,7 @@ function HomePage() {
         <SearchSection />
         <Graveyard handleClickGrave={handleClickGrave} />
       </Container>
-      <GraveyardZone zoneName={`Khu ${zoneName}`} handleClose={handleClose} open={open} />
+      <GraveyardZone zoneName={`Khu ${zoneName}`} handleClose={handleClose} open={open}/>
     </Container>
   );
 }
