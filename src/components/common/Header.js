@@ -10,7 +10,7 @@ function Header() {
   return (
     <Grid id="header">
       <h1>
-        <Link to="/">Pet Graveyard</Link>
+        <Link to="/" style={{ color: '#000', textDecoration: 'none' }}>MỘ THÚ CƯNG</Link>
       </h1>
 
       {/* <img src="" alt="logo" id="logo" /> */}
