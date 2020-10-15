@@ -17,7 +17,7 @@
   width: 90%;
   margin: 10px 5% !important;
   height: 75%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .MuiInput-underline:before {
