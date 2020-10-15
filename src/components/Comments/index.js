@@ -33,7 +33,6 @@ const Comments = ({ comments, slug }) => {
           </h2>
             
           <CommentList id="comment-list">
-            {console.log(comments)}
               {comments.length > 0 &&
                   comments
                       .filter(comment => !comment.pId)
