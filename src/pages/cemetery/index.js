@@ -11,7 +11,7 @@ import Slider from "react-slick";
 import { DiscussionEmbed } from "disqus-react";
 import CustomSlide from "../../components/common/CustomSlide";
 import { GoogleSpreadsheet } from "google-spreadsheet";
-import {firestore} from '../../firebase.js'
+import { firestore } from '../../firebase.js'
 
 import {
   SPREADSHEET_ID,
@@ -75,7 +75,7 @@ const Cemetery = (props) => {
         })
         setComments(posts)
       })
-}, [id])
+  }, [id])
 
   return (
     data && (
@@ -89,12 +89,13 @@ const Cemetery = (props) => {
 
           <Grid className="cemetery-content" container spacing={2}>
             <Grid item xs={5}>
-              {/* <Slider {...settings}>
+              <Slider {...settings}>
+                {console.log(data['Link ảnh'])}
                 {SLIDE_IMAGES.map((url, i) => (
                   <CustomSlide url={url} index={i} className="img" />
                 ))}
-              </Slider> */}
-              <img style={{ width: "100%" }} src={data["Link ảnh"]} />
+              </Slider>
+              {/* <img style={{ width: "100%" }} src={data["Link ảnh"]} /> */}
             </Grid>
             <Grid className="cemetery-pet" item xs={7}>
               <Grid className="cemetery-pet-info">
@@ -119,7 +120,7 @@ const Cemetery = (props) => {
                   </p>
                 </Grid>
               </Grid>
-              <Grid container className="pet-info-comment" spacing={2}>
+              {/* <Grid container className="pet-info-comment" spacing={2}>
                 <Grid className="comment-box" item xs={8}>
                   <InputBase
                     className="comment-input"
@@ -130,7 +131,7 @@ const Cemetery = (props) => {
                 <Grid className="comment-send" item xs={4}>
                   <Button variant="contained">Thắp hương</Button>
                 </Grid>
-              </Grid>
+              </Grid> */}
             <Grid className="pet-info-comment">
 
               {/* <DiscussionEmbed
