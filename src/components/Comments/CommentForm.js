@@ -32,7 +32,7 @@ const CommentBox = styled.div`
   }
   button {
     padding: 10px; 
-    background-color: ${props => props.isCemetery ? '#ede6d9' : '#fff'};
+    background-color: #ede6d9;
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 3px;
     text-transform: uppercase;
@@ -104,7 +104,7 @@ const CommentForm = ({ parentId, slug }) => {
         {/* {!isCemetery && <button type="submit" className="btn">Submit</button>} */}
           <button type="submit">
             {isCemetery && <img src={require("../../img/incense.svg")} width="30px" height="30px" />}
-            <div>{isCemetery ? 'Thắp hương' : 'Submit'}</div>
+            <div>{isCemetery ? 'Thắp hương' : 'Gửi'}</div>
           </button>
         
       </form>

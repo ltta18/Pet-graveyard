@@ -14,7 +14,11 @@ function Header() {
       {/* <img src="" alt="logo" id="logo" /> */}
       <Grid>
         <Button className="button">Donate</Button>
-        <Button className="button">Đăng kí mộ</Button>
+        <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSccrmh_nMr2Clpm6JlpgISpucRkunI4hNGKCNjrwILF9CTfLw/viewform">
+          <Button className="button">
+                  Đăng kí mộ
+          </Button>
+        </a>
       </Grid>
     </Grid>
   );

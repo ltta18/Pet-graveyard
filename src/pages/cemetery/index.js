@@ -43,7 +43,7 @@ const Cemetery = (props) => {
 
       return (
         <a>
-          <img className="small-image" src={`https://drive.google.com/uc?export=view&${images[i].split('?')[1]}`} />
+          <img className="small-image" src={`https://drive.google.com/uc?export=view&${images[i].split('?')[1]}`} alt="slider"/>
           {/* <img className="small-image" src={SLIDE_IMAGES[i]} /> */}
         </a>
       );
@@ -131,9 +131,9 @@ const Cemetery = (props) => {
             </Grid>
             <Grid className="cemetery-pet" item xs={7}>
               <Grid className="cemetery-pet-info">
-                <Typography align="center" variant="h5" component="h2">
-                  Giới thiệu chung
-                </Typography>
+                <h2 style={{ margin: '0px 0px 10px', textAlign: 'center' }}>
+                  GIỚI THIỆU CHUNG
+                </h2>
                 <Grid className="cemetery-pet-info-content">
                   {['Tên thú cưng', 'Tuổi thú cưng', 'Ngày sinh', 'Ngày mất', 'Lời từ biệt'].map((item) => {
                     return (
