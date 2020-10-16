@@ -50,7 +50,10 @@ function GraveyardZone(props) {
             <button className="x-icon" onClick={handleClose}></button>
           </Container>
           <Container className="headstone-list">
-            {data.map((obj, index) => (
+            {/* Convert zoneName to ASCII & check if the pet row belongs to that zone*/}
+            {data
+            .filter((obj, index) => index > (zoneName.charCodeAt(zoneName.length-1)-65)*10-1 && index < (zoneName.charCodeAt(zoneName.length-1)-64)*10)
+            .map((obj, index) => (
               <Headstone
                 name={`${zoneName}${index}`}
                 img={`https://drive.google.com/uc?export=view&${obj["Link ảnh"].split(',')[0].split('?')[1]}`}
