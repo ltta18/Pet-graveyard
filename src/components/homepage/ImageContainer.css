@@ -12,9 +12,9 @@
 }
 
 .image {
-  width: 170px !important;
-  height: 170px;
-  border-radius: 80px;
+  width: 160px !important;
+  height: 160px;
+  border-radius: 75px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
   flex-shrink: 0;
   object-fit: cover;
