@@ -53,18 +53,18 @@ function SearchSection() {
 
   return (
     <Container id="search-section">
-      <h2 style={{ margin: 0, marginBottom: 10, textAlign: 'center' }}>Tìm kiếm thú cưng</h2>
+      <h2 className="section-title">Tìm kiếm thú cưng</h2>
       <Container className="input-field">
-        <TextField style={{ padding: "10px 15px", width: '90%' }}placeholder="Nhập tên thú cưng" value={searchInput}
+        <TextField className="field-title" placeholder="Nhập tên thú cưng" value={searchInput}
             onChange={handleSearchChange} />
       </Container>
       <Box className="result">
         {data.map((obj, index) => (
               <Link className="result-pet" to={{ pathname: `cemetery/${obj._rowNumber}` }}>
                 <h3>
-                  {obj["Tên thú cưng"]}
-                  </h3>
-                  </Link>
+                  {obj["Tên thú cưng"]} - {obj["Tuổi thú cưng"]} tuổi ({obj["Ngày mất"]})
+                </h3>
+              </Link>
             ))}
       </Box>
     </Container>

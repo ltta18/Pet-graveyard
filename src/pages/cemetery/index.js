@@ -91,19 +91,26 @@ const Cemetery = (props) => {
 
   useEffect(() => {
     if (data) {
+      // set height for img 
+      const sliderContainer = document.getElementsByClassName('sliderContainer')[0];
+      const img = document.getElementsByClassName('img');
+      const imgHeight = sliderContainer.clientHeight/2;
+      for (let i=0; i<img.length; i++) {
+        img[i].style.height = `${imgHeight}px`;
+      }
+
       // set top value for slickDots
       const slickDot = document.getElementsByClassName('slick-dots')[0];
-      const sliderContainer = document.getElementsByClassName('sliderContainer')[0]
-      const sliderActive = document.getElementsByClassName('slick-active')[0]
-      const targetHeight = sliderContainer.clientHeight - sliderActive.clientHeight - 16
+      const sliderActive = document.getElementsByClassName('slick-active')[0];
+      const targetHeight = sliderContainer.clientHeight - sliderActive.clientHeight - 16;
       if (slickDot) slickDot.style.top = `-${targetHeight}px`;
 
       // set top values for prev & next button 
       const slickPrev = document.getElementsByClassName('slick-prev')[0];
       const slickNext = document.getElementsByClassName('slick-next')[0];
       if (slickPrev) {
-        slickPrev.style.top = `-${targetHeight - slickDot.clientHeight/2}px`
-        slickNext.style.top = `-${targetHeight - slickDot.clientHeight/2}px`
+        slickPrev.style.top = `-${targetHeight - slickDot.clientHeight/2}px`;
+        slickNext.style.top = `-${targetHeight - slickDot.clientHeight/2}px`;
       }
     }
   }, [data, comments])
