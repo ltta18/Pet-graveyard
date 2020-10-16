@@ -1,7 +1,7 @@
 import React from 'react';
-import './ImageContainer.css';
 import Slider from "react-slick";
 import CustomSlide from '../common/CustomSlide';
+import './ImageContainer.css';
 
 const SLIDE_IMAGES = [
   require('../../img/cat1.jpg'),
@@ -17,7 +17,7 @@ const SLIDE_IMAGES = [
 
 function ImageContainer () {
   const settings = {
-    dots: true,
+    // dots: true,
     infinite: true,
     speed: 400,
     slidesToShow: 3,

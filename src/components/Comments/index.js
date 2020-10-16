@@ -1,17 +1,4 @@
-import React, { useEffect, useState } from "react";
-
-import {
-  Button,
-  Container,
-  Grid,
-  InputBase,
-  Typography,
-} from "@material-ui/core";
-import Slider from "react-slick";
-import { DiscussionEmbed } from "disqus-react";
-import CustomSlide from "../../components/common/CustomSlide";
-import { GoogleSpreadsheet } from "google-spreadsheet";
-import {firestore} from '../../firebase.js'
+import React, { useEffect } from "react";
 import Comment from "./Comment"
 import CommentForm from "./CommentForm"
 import styled from "styled-components"

@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import './SearchSection.css';
-import { Container, Box, TextField, Typography } from '@material-ui/core';
+import {
+  Container,
+  Box,
+  TextField,
+} from '@material-ui/core';
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { Link } from 'react-router-dom';
+import './SearchSection.css';
 
 export const SPREADSHEET_ID = process.env.REACT_APP_SPREADSHEET_ID;
 export const SHEET_ID = process.env.REACT_APP_SHEET_ID;
@@ -51,7 +55,7 @@ function SearchSection() {
     <Container id="search-section">
       <h2 style={{ margin: 0, marginBottom: 10, textAlign: 'center' }}>Tìm kiếm thú cưng</h2>
       <Container className="input-field">
-        <TextField style={{ padding: "10px 15px"}}placeholder="Nhập tên thú cưng" value={searchInput} fullWidth
+        <TextField style={{ padding: "10px 15px", width: '90%' }}placeholder="Nhập tên thú cưng" value={searchInput}
             onChange={handleSearchChange} />
       </Container>
       <Box className="result">

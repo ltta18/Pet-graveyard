@@ -1,9 +1,7 @@
 
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
-import PropTypes from "prop-types"
 import { firestore } from "../../firebase.js"
-import { Button } from "@material-ui/core"
 
 const CommentBox = styled.div`
   input,
@@ -34,7 +32,7 @@ const CommentBox = styled.div`
   }
   button {
     padding: 10px; 
-    background-color: ${props => props.isCemetery ? '#ede6d9' : '#fff'};
+    background-color: #ede6d9;
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 3px;
     text-transform: uppercase;
@@ -42,6 +40,7 @@ const CommentBox = styled.div`
     height: 150px;
     margin-left: 10px;
     cursor: pointer;
+    font-family: "Barlow", -apple-system, Roboto, sans-serif;
   }
 `
 
@@ -106,7 +105,7 @@ const CommentForm = ({ parentId, slug }) => {
         {/* {!isCemetery && <button type="submit" className="btn">Submit</button>} */}
           <button type="submit">
             {isCemetery && <img src={require("../../img/incense.svg")} width="30px" height="30px" />}
-            <div>{isCemetery ? 'Thắp hương' : 'Submit'}</div>
+            <div><b>{isCemetery ? 'Thắp hương' : 'Gửi'}</b></div>
           </button>
         
       </form>
