@@ -52,7 +52,7 @@ function GraveyardZone(props) {
           <Container className="headstone-list">
             {data.map((obj, index) => (
               <Headstone
-                name={obj["Tên thú cưng"]}
+                name={`${zoneName}${index}`}
                 img={`https://drive.google.com/uc?export=view&${obj["Link ảnh"].split(',')[0].split('?')[1]}`}
                 id={obj._rowNumber}
                 key={index}

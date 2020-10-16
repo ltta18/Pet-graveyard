@@ -91,6 +91,7 @@ const Cemetery = (props) => {
 
   useEffect(() => {
     if (data) {
+      // set height for img 
       const sliderContainer = document.getElementsByClassName('sliderContainer')[0];
       const img = document.getElementsByClassName('img');
       const imgHeight = sliderContainer.clientHeight/2;
