@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import CommentForm from "./CommentForm"
 import moment from "moment"
 
 const CommentBox = styled.article`

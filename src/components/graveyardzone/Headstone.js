@@ -1,5 +1,4 @@
 import React from "react";
-import "./Headstone.css";
 import {
   CardMedia,
   Card,
@@ -8,6 +7,7 @@ import {
   CardContent,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import "./Headstone.css";
 
 function Headstone(props) {
   const { img, name, id } = props;

@@ -1,10 +1,8 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import Container from "@material-ui/core/Container";
-import "./Header.css";
 import { Link } from "react-router-dom";
-import { Typography } from "@material-ui/core";
+import "./Header.css";
 
 function Header() {
   return (

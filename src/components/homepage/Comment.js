@@ -1,7 +1,7 @@
 import React from "react";
-import { Container, Box, TextField, Typography } from "@material-ui/core";
-import "./Comment.css";
+import { Container } from "@material-ui/core";
 import { DiscussionEmbed } from "disqus-react";
+import "./Comment.css";
 
 function Comment() {
   const disqusShortName = "pet-graveyard-com";
@@ -13,22 +13,7 @@ function Comment() {
 
   return (
     <Container id="comment-section">
-      {/* <Typography>Comment</Typography> */}
       <DiscussionEmbed shortname={disqusShortName} config={disqusConfig} />
-      {/* <Box id="comment-box">
-        <Typography>A: Chào buổi sáng mọi người</Typography>
-        <Typography>B: Chào buổi sáng mọi người</Typography>
-        <TextField
-          id="text-input"
-          placeholder="Nhập comment tại đây"
-          fullWidth
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          variant="filled"
-        />
-      </Box> */}
     </Container>
   );
 }
