@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Comment from "./Comment"
 import CommentForm from "./CommentForm"
 import styled from "styled-components"
@@ -6,40 +6,40 @@ import moment from "moment"
 
 const RUNNING_TEXT = [
   {
-    name: 'abc',
+    name: 'Tuấn',
     time: moment('2020-10-10'),
     content: 'Chia buồn cùng gia đình!'
+  },
+  {
+    name: 'Nam',
+    time: moment('2020-10-10'),
+    content: 'Thương em quá!'
   },
   {
     name: 'ccc',
     time: moment('2020-10-10'),
-    content: 'Chia buồn cùng gia đình!'
+    content: 'Em mèo đáng yêu ghê!'
   },
   {
-    name: 'cd',
+    name: 'Hằng',
     time: moment('2020-10-10'),
-    content: 'Chia buồn cùng gia đình!'
+    content: 'Ôi chị nhớ em quá!'
   },
   {
-    name: 'cd',
+    name: 'Bảo',
     time: moment('2020-10-10'),
-    content: 'Chia buồn cùng gia đình!'
+    content: 'Chia buồn cùng gia quyến!'
   },
   {
-    name: 'cd',
+    name: 'Quang',
     time: moment('2020-10-10'),
-    content: 'Chia buồn cùng gia đình!'
-  },
-  {
-    name: 'cd',
-    time: moment('2020-10-10'),
-    content: 'Chia buồn cùng gia đình!'
+    content: 'Ôi chao ôi em Miu của anh!'
   }
 ]
 
 const CommentList = styled.div`
   background: #EDE6D9;
-  max-height: 200px;
+  max-height: 210px;
   padding-left: 10px;
   padding-right: 10px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
@@ -54,11 +54,27 @@ const CommentList = styled.div`
 
 const Comments = ({ comments, slug }) => {
   const isCemetery = window.location.href.split('/')[3] === 'cemetery' ? true : false;
+  var [curRunningId, setCurRunningId] = useState(0)
 
   useEffect(() => {
     var objDiv = document.getElementById("comment-list");
     objDiv.scrollTop = objDiv.scrollHeight;
   }, [comments])
+
+  const runningText = () => {
+    const totalLength = RUNNING_TEXT.length
+    if (curRunningId+3 > totalLength) setCurRunningId(0)
+    else setCurRunningId(curRunningId++)
+    
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      runningText()
+    }, 2000)
+    return () => clearInterval(interval)
+  })
+
 
   return (
     <div style={{ marginLeft: 40, width: '100%' }}>
@@ -67,7 +83,7 @@ const Comments = ({ comments, slug }) => {
           </h2>
             
           <CommentList id="comment-list">
-              {!isCemetery && RUNNING_TEXT.map((comment, id) => <Comment key={id} comment={comment} />)}
+              {!isCemetery && [0,1,2].map((i) => <Comment key={i} comment={RUNNING_TEXT[curRunningId+i]} />)}
               {isCemetery && comments.length > 0 &&
                   comments
                       .filter(comment => !comment.pId)
