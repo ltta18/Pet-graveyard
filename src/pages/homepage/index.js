@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ImageContainer from "../../components/homepage/ImageContainer";
 import Graveyard from "../../components/homepage/Graveyard";
 import SearchSection from "../../components/homepage/SearchSection";
 import GraveyardZone from "../../components/graveyardzone/GraveyardZone";
 import Comments from "../../components/Comments";
 import { Container } from "@material-ui/core";
-import { firestore } from '../../firebase.js'
 import "./index.css";
 
 function HomePage() {
   const [zoneName, setZoneName] = useState('A');
   const [open, setOpen] = React.useState(false);
-  const [comments, setComments] = useState([{name: "Elon", content: "Hello, I also went there.", pId: null, time: null}])
-  const id = "0"
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -26,24 +24,11 @@ function HomePage() {
     setZoneName(zoneName);
   };
 
-  useEffect(() => {
-    firestore
-      .collection(`comments`)
-      .onSnapshot(snapshot => {
-        const posts = snapshot.docs
-        .filter(doc => doc.data().slug === id)
-        .map(doc => {
-          return { id: doc.id, ...doc.data() }
-        })
-        setComments(posts)
-      })
-  }, [id])
-
   return (
     <Container maxWidth={false}>
       <Container id="intro" maxWidth={false}>
         <ImageContainer />
-        <Comments comments={comments} slug={id} />
+        <Comments />
       </Container>
       <Container id="body" maxWidth={false}>
         <SearchSection />
