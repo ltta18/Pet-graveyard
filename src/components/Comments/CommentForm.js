@@ -98,11 +98,6 @@ const CommentForm = ({ parentId, slug }) => {
           </label>
           
         </div>
-        {/* </div> */}
-        {/* <button type="submit" className="btn">
-          Submit
-        </button> */}
-        {/* {!isCemetery && <button type="submit" className="btn">Submit</button>} */}
           <button type="submit">
             {isCemetery && <img src={require("../../img/incense.svg")} width="30px" height="30px" />}
             <div><b>{isCemetery ? 'Thắp hương' : 'Gửi'}</b></div>

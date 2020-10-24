@@ -61,36 +61,10 @@ const SingleComment = ({ comment }) => (
   </div>
 )
 
-const Comment = ({ comment, child, slug }) => {
-  const [showReplyBox, setShowReplyBox] = useState(false)
+const Comment = ({ comment }) => {
   return (
     <CommentBox>
       <SingleComment comment={comment} />
-      {child && (
-        <CommentBox child className="comment-reply">
-          <SingleComment comment={child} />
-        </CommentBox>
-      )}
-      {/* {!child && (
-        <div>
-          <CommentForm parentId={comment.id} slug={slug} />
-          {showReplyBox ? (
-            <div>
-              <button
-                className="btn bare"
-                onClick={() => setShowReplyBox(false)}
-              >
-                Cancel Reply
-              </button>
-              <CommentForm parentId={comment.id} slug={slug} />
-            </div>
-          ) : (
-            <button className="btn bare" onClick={() => setShowReplyBox(true)}>
-              Reply
-            </button>
-          )}
-        </div>
-      )} */}
     </CommentBox>
   )
 }

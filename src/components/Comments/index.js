@@ -65,7 +65,6 @@ const Comments = ({ comments, slug }) => {
     const totalLength = RUNNING_TEXT.length
     if (curRunningId+3 > totalLength) setCurRunningId(0)
     else setCurRunningId(curRunningId++)
-    
   }
 
   useEffect(() => {
