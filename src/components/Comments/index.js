@@ -2,6 +2,40 @@ import React, { useEffect } from "react";
 import Comment from "./Comment"
 import CommentForm from "./CommentForm"
 import styled from "styled-components"
+import moment from "moment"
+
+const RUNNING_TEXT = [
+  {
+    name: 'abc',
+    time: moment('2020-10-10'),
+    content: 'Chia buồn cùng gia đình!'
+  },
+  {
+    name: 'ccc',
+    time: moment('2020-10-10'),
+    content: 'Chia buồn cùng gia đình!'
+  },
+  {
+    name: 'cd',
+    time: moment('2020-10-10'),
+    content: 'Chia buồn cùng gia đình!'
+  },
+  {
+    name: 'cd',
+    time: moment('2020-10-10'),
+    content: 'Chia buồn cùng gia đình!'
+  },
+  {
+    name: 'cd',
+    time: moment('2020-10-10'),
+    content: 'Chia buồn cùng gia đình!'
+  },
+  {
+    name: 'cd',
+    time: moment('2020-10-10'),
+    content: 'Chia buồn cùng gia đình!'
+  }
+]
 
 const CommentList = styled.div`
   background: #EDE6D9;
@@ -33,7 +67,8 @@ const Comments = ({ comments, slug }) => {
           </h2>
             
           <CommentList id="comment-list">
-              {comments.length > 0 &&
+              {!isCemetery && RUNNING_TEXT.map((comment, id) => <Comment key={id} comment={comment} />)}
+              {isCemetery && comments.length > 0 &&
                   comments
                       .filter(comment => !comment.pId)
                       .sort(function(a,b) {return a.time - b.time})
@@ -52,7 +87,7 @@ const Comments = ({ comments, slug }) => {
                           )
                       })}
           </CommentList>
-          <CommentForm slug={slug} />
+          {isCemetery && <CommentForm slug={slug} />}
     </div>
   );
 };
