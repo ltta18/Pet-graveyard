@@ -36,6 +36,15 @@ function GraveyardZone(props) {
     getData();
   }, []);
 
+  useEffect(() => {
+    if (window.innerWidth < 870) {
+      const images = document.getElementsByClassName('MuiCardMedia-img')
+      for (let i=0; i<images.length; i++) {
+        images[i].style.height = '100px'
+      }
+    }
+  }, [data])
+
   return (
     <Modal
       open={open}
