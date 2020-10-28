@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Slider from "react-slick";
 import CustomSlide from '../common/CustomSlide';
 import './ImageContainer.css';

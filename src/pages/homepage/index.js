@@ -4,7 +4,7 @@ import Graveyard from "../../components/homepage/Graveyard";
 import SearchSection from "../../components/homepage/SearchSection";
 import GraveyardZone from "../../components/graveyardzone/GraveyardZone";
 import Comments from "../../components/Comments";
-import { Container } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import "./index.css";
 
 function HomePage() {
@@ -26,14 +26,22 @@ function HomePage() {
 
   return (
     <Container maxWidth={false}>
-      <Container id="intro" maxWidth={false}>
-        <ImageContainer />
-        <Comments />
-      </Container>
-      <Container id="body" maxWidth={false}>
-        <SearchSection />
-        <Graveyard handleClickGrave={handleClickGrave} />
-      </Container>
+      <Grid container id="intro" alignItems="center" justify="space-between" spacing={5}>
+        <Grid item xs={12} md={7}>
+          <ImageContainer />
+        </Grid>
+        <Grid item xs={12} md={5}>
+          <Comments />
+        </Grid>
+      </Grid>
+      <Grid container id="body" direction="row" spacing={5}>
+        <Grid item xs={12} md={6}>
+          <SearchSection />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Graveyard handleClickGrave={handleClickGrave} />
+        </Grid>
+      </Grid>
       <GraveyardZone zoneName={`Khu ${zoneName}`} handleClose={handleClose} open={open}/>
     </Container>
   );

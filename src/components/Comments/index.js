@@ -76,7 +76,7 @@ const Comments = ({ comments, slug }) => {
 
 
   return (
-    <div style={{ marginLeft: 40, width: isCemetery ? 'auto' : '100%' }}>
+    <div>
           <h2 style={{ margin: 0, marginBottom: 10, textAlign: 'center' }}>
             {isCemetery ? 'LỜI NHẮN GỬI' : 'TRÒ CHUYỆN'}
           </h2>
