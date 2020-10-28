@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Menu from '@material-ui/core/Menu';
@@ -22,10 +22,9 @@ function Header() {
   return (
     <Grid id="header">
       <h1>
-        <Link to="/" style={{ color: '#000', textDecoration: 'none' }}>MỘ THÚ CƯNG</Link>
+        <Link to="/"><img src={require('../../img/logo.jpg')} height={100} alt="logo" id="logo" /></Link>
       </h1>
-
-      {/* <img src="" alt="logo" id="logo" /> */}
+      
       {window.innerWidth > 870 && 
       <div>
         <Button className="button">Donate</Button>

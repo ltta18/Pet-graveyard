@@ -13,7 +13,15 @@ function Headstone(props) {
   const { img, name, id } = props;
 
   return (
-    <Link className="headstone" to={{ pathname: `cemetery/${id}` }}>
+    <Link
+      style={
+        window.innerWidth <= 870
+        ? {width: '100%'}
+        : {width: '25%'}
+      }
+      className="headstone"
+      to={{ pathname: `cemetery/${id}` }}
+    >
       <Card>
         <CardActionArea>
           <CardMedia

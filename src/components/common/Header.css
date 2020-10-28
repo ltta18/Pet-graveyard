@@ -1,5 +1,6 @@
 #header {
   display: flex;
+  background-color: #f8f7f3;
   justify-content: space-between;
   align-items: center;
   height: 70px;
@@ -8,7 +9,6 @@
 
 #logo {
   float: left;
-  margin-left: 2rem !important;
 }
 
 .button {
