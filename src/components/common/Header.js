@@ -17,7 +17,7 @@ function Header() {
     console.log(width)
     width < 870 ? setMobile(true) : setMobile(false)
   }, [])
-  
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -57,11 +57,9 @@ function Header() {
         >
           <MenuItem onClick={handleClose}>Donate</MenuItem>
           <MenuItem onClick={handleClose}>
-          <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSccrmh_nMr2Clpm6JlpgISpucRkunI4hNGKCNjrwILF9CTfLw/viewform">
-          
-                  Đăng kí mộ
-          
-        </a>
+            <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSccrmh_nMr2Clpm6JlpgISpucRkunI4hNGKCNjrwILF9CTfLw/viewform">
+              Đăng kí mộ
+            </a>
           </MenuItem>
         </Menu>
     </div>

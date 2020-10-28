@@ -37,7 +37,7 @@ const Cemetery = (props) => {
   const [data, setData] = useState(null);
   const [comments, setComments] = useState([{ name: "Elon", content: "Hello, I also went there.", pId: null, time: null }])
 
-  const settings = {
+  const settings = window.innerWidth > 870 ? {
     customPaging: function (i) {
       const images = data['Link ảnh'].split(',')
 
@@ -55,8 +55,14 @@ const Cemetery = (props) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1
+  } :
+  {
+    dotsClass: "slick-dots slick-thumb",
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
   };
-
 
   useEffect(() => {
     async function getData() {
@@ -91,26 +97,35 @@ const Cemetery = (props) => {
 
   useEffect(() => {
     if (data) {
-      // set height for img 
-      const sliderContainer = document.getElementsByClassName('sliderContainer')[0];
-      const img = document.getElementsByClassName('img');
-      const imgHeight = sliderContainer.clientHeight/2;
-      for (let i=0; i<img.length; i++) {
-        img[i].style.height = `${imgHeight}px`;
-      }
+      if (window.innerWidth > 870) {
+        // set height for img 
+        const sliderContainer = document.getElementsByClassName('sliderContainer')[0];
+        const img = document.getElementsByClassName('img');
+        const imgHeight = sliderContainer.clientHeight/2;
+        for (let i=0; i<img.length; i++) {
+          img[i].style.height = `${imgHeight}px`;
+        }
 
-      // set top value for slickDots
-      const slickDot = document.getElementsByClassName('slick-dots')[0];
-      const sliderActive = document.getElementsByClassName('slick-active')[0];
-      const targetHeight = sliderContainer.clientHeight - sliderActive.clientHeight - 16;
-      if (slickDot) slickDot.style.top = `-${targetHeight}px`;
+        // set top value for slickDots
+        const slickDot = document.getElementsByClassName('slick-dots')[0];
+        const sliderActive = document.getElementsByClassName('slick-active')[0];
+        const targetHeight = sliderContainer.clientHeight - sliderActive.clientHeight - 46;
+        if (slickDot) slickDot.style.top = `-${targetHeight}px`;
 
-      // set top values for prev & next button 
-      const slickPrev = document.getElementsByClassName('slick-prev')[0];
-      const slickNext = document.getElementsByClassName('slick-next')[0];
-      if (slickPrev) {
-        slickPrev.style.top = `-${targetHeight - slickDot.clientHeight/2}px`;
-        slickNext.style.top = `-${targetHeight - slickDot.clientHeight/2}px`;
+        // set top values for prev & next button 
+        const slickPrev = document.getElementsByClassName('slick-prev')[0];
+        const slickNext = document.getElementsByClassName('slick-next')[0];
+        if (slickPrev) {
+          slickPrev.style.top = `-${targetHeight - slickDot.clientHeight/2}px`;
+          slickNext.style.top = `-${targetHeight - slickDot.clientHeight/2}px`;
+        }
+      } else {
+        const img = document.getElementsByClassName('img');
+        const imgHeight = 300;
+        for (let i=0; i<img.length; i++) {
+          console.log(i)
+          img[i].style.height = `${imgHeight}px`;
+        }
       }
     }
   }, [data, comments])
@@ -125,8 +140,8 @@ const Cemetery = (props) => {
             </Typography>
           </Grid>
 
-          <Grid className="cemetery-content" container spacing={2}>
-            <Grid item xs={5} className="sliderContainer">
+          <Grid className="cemetery-content" container spacing={5}>
+            <Grid item xs={12} md={6} className="sliderContainer">
               <Slider {...settings}>
                 {data['Link ảnh'].split(',').map((url, i) => (
                   <CustomSlide url={`https://drive.google.com/uc?export=view&${url.split('?')[1]}`} index={i} key={i} className="img" />
@@ -136,7 +151,7 @@ const Cemetery = (props) => {
                   ))} */}
               </Slider>
             </Grid>
-            <Grid className="cemetery-pet" item xs={7}>
+            <Grid className="cemetery-pet" item xs={12} md={6}>
               <Grid className="cemetery-pet-info">
                 <h2 style={{ margin: '0px 0px 10px', textAlign: 'center' }}>
                   GIỚI THIỆU CHUNG
