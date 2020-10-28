@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Slider from "react-slick";
 import CustomSlide from '../common/CustomSlide';
 import './ImageContainer.css';
@@ -26,6 +26,18 @@ function ImageContainer () {
     adaptiveHeight: true,
     className: 'slider'
   };
+
+  useEffect(() => {
+    const sliderWidth = document.getElementsByClassName('slick-slider')[0].clientWidth
+    const images = document.getElementsByClassName('image')
+    for (let i in images) {
+      if (images[i].style) {
+        images[i].style.width = `${sliderWidth/4}px`
+        images[i].style.height = `${sliderWidth/4}px`
+        images[i].style.borderRadius = `${sliderWidth/8}px`
+      }
+    }
+  }, [])
   
   return (
     <Slider {...settings}> 

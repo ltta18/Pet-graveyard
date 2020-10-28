@@ -1,6 +1,7 @@
 .cemetery-container {
   padding: 30px 50px 100px;
   background-color: #d2d8e8;
+  overflow-x: hidden;
 }
 .cemetery-title {
   display: inline-block;
@@ -29,7 +30,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 40px;
   padding: 10px;
   background: #ede6d9;
   box-shadow: 3px 3px 3px rgba(0,0,0,0.05);
