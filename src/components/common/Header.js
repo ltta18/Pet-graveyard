@@ -10,13 +10,6 @@ import "./Header.css";
 
 function Header() {    
   const [anchorEl, setAnchorEl] = useState(null);
-  const [mobile, setMobile] = useState(false);
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    console.log(width)
-    width < 870 ? setMobile(true) : setMobile(false)
-  }, [])
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -33,7 +26,7 @@ function Header() {
       </h1>
 
       {/* <img src="" alt="logo" id="logo" /> */}
-      {!mobile && 
+      {window.innerWidth > 870 && 
       <div>
         <Button className="button">Donate</Button>
         <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSccrmh_nMr2Clpm6JlpgISpucRkunI4hNGKCNjrwILF9CTfLw/viewform">
@@ -43,7 +36,7 @@ function Header() {
         </a>
       </div>
       }
-      {mobile &&
+      {window.innerWidth <= 870 &&
       <div>
         <IconButton edge="start" aria-label="menu" onClick={handleClick}>
             <MenuIcon />

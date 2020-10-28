@@ -60,12 +60,12 @@ function SearchSection() {
       </Container>
       <Box className="result">
         {data.map((obj, index) => (
-              <Link className="result-pet" to={{ pathname: `cemetery/${obj._rowNumber}` }}>
-                <h3>
-                  {obj["Tên thú cưng"]} - {obj["Tuổi thú cưng"]} tuổi ({obj["Ngày mất"]})
-                </h3>
-              </Link>
-            ))}
+          <Link className="result-pet" to={{ pathname: `cemetery/${obj._rowNumber}` }}>
+            <h3>
+              {obj["Tên thú cưng"]} - {obj["Tuổi thú cưng"]} tuổi ({obj["Ngày mất"]})
+            </h3>
+          </Link>
+        ))}
       </Box>
     </Container>
   );
