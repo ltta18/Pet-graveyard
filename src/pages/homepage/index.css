@@ -19,7 +19,6 @@
 }
 
 #intro {
-  display: flex;
   background: #d2d8e8 !important;
   padding: 2rem !important;
   text-align: center;
@@ -32,7 +31,6 @@
 
 #body {
   background: #ede6d9 !important;
-  height: 500px;
   padding: 2rem !important;
   display: flex;
   text-align: center;
