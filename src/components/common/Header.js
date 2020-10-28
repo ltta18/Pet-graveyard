@@ -21,8 +21,8 @@ function Header() {
 
   return (
     <Grid id="header">
-      <h1>
-        <Link to="/"><img src={require('../../img/logo.jpg')} height={100} alt="logo" id="logo" /></Link>
+      <h1 style={{overflow: 'hidden'}}>
+        <Link to="/"><img src={require('../../img/logo.jpg')} height={200} alt="logo" id="logo" /></Link>
       </h1>
       
       {window.innerWidth > 870 && 
